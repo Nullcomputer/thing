@@ -4,11 +4,11 @@ Cake is a pioneering cake selling website that will revolutionise the desert ser
 
 ### Roles
 #### Front end
-Harry Lewis
-Sean Garret
+Harry Lewis  
+Sean Garret  
 #### Back end
-Eoin Mag Ualghairg
-Taryn Hartwig Howells
+Eoin Mag Ualghairg  
+Taryn Hartwig Howells  
 #### Wildcards
 Matthew Keenan
 
