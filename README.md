@@ -1,5 +1,4 @@
 # Cake.
-##
 ## What is Cake.?
 Cake is a pioneering cake selling website that will revolutionise the desert serving industry
 ##
