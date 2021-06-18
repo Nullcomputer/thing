@@ -1,18 +1,18 @@
 # Cake.
-### What is Cake.?
+# What is Cake.?
 Cake is a pioneering cake selling website that will revolutionise the desert serving industry
 
-### Roles
-#### Front end
+# Roles
+### Front end
 Harry Lewis  
 Sean Garret  
-#### Back end
+### Back end
 Eoin Mag Ualghairg  
 Taryn Hartwig Howells  
-#### Wildcards
+### Wildcards
 Matthew Keenan
 
-### Technologies
+# Technologies
 Node.js
 Pug(Jade)
 Express.js
