@@ -1,12 +1,14 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Product+Sans' rel='stylesheet' type='text/css'>
+</head>
 <body>
     <div class="header">
         <a href="/" class="button" id="header_button">Cake.</a>
         
-        <a href="/add-employee" class="button" id="header_button_add">__template__</a>
-        <a href="/add-employee" class="button" id="header_button_add">__template__</a>
-        <a href="/add-employee" class="button" id="header_button_add">__template__</a>
-        <a href="/add-employee" class="button" id="header_button_add">__template__</a>
-        <a href="/add-employee" class="button" id="header_button_add">__template__</a>
+        <a href="/events" class="button" id="header_button_add">Events</a>
+        <a href="/cake-type" class="button" id="header_button_add">Cake Type</a>
+        <a href="/shopping" class="button" id="header_button_add">Shopping</a>
+        <a href="/register" class="button" id="header_button_add">Register</a>
 
         <div class="search_items">
             <input type="text" class="search_bar">
@@ -14,10 +16,71 @@
         </div>
         <a href="/add-employee" class="button" id="login-button">Login</a>
     </div>
+    <div class="main">
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+        <p>SUPER</p>
+        <p>HOT</p>
+    </div>
 </body>
 <style>
     *{padding: 0; margin: 0;}
 
+    body {
+        background: linear-gradient(to right, #ff03b3, #ff7b00);
+    }
+
+    /* Bainrow title */
+    /* #header_button {
+        background-image: linear-gradient(to top left, red, indigo, blue, yellow, orange, red);   -webkit-background-clip: text;
+        color: transparent;
+    } */
     #login-button{
         /*Logged in - green
         background-color: #4bd441;
@@ -51,10 +114,7 @@
     }
 
     .search_bar{
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-top: 5px 10px;
         border: none;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -81,5 +141,42 @@
         font-size: 20px;
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .main {
+        font-family: 'Product Sans';
+        color: #000;
+        text-decoration: none;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        margin: 0px 10px 10px;
+        padding: 75px 10px 10px;
+    }
+    
+    @media only screen and (max-width: 1320px) {
+        .button {
+            font-size: 20px;
+        }
+        .main {
+            padding: 60px 10px;
+        }
+    }
+
+    @media only screen and (max-width: 1110px) {
+        .search_items {
+            display: none;
+        }
+        .main {
+            padding: 60px 10px;
+        }
+    }
+    
+    @media only screen and (max-width: 660px) {
+        .header {
+            display: none;
+        }
+        .main {
+            padding: 10px;
+        }
     }
 </style>
