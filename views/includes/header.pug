@@ -1,16 +1,21 @@
+
 .header
   a#header_button.button(href='/') Cake.
-  a#header_button_add.button(href='/add-employee') __template__
-  a#header_button_add.button(href='/add-employee') __template__
-  a#header_button_add.button(href='/add-employee') __template__
-  a#header_button_add.button(href='/add-employee') __template__
-  a#header_button_add.button(href='/add-employee') __template__
+  a#header_button_add.button(href='/events') Events
+  a#header_button_add.button(href='/cake-type') Cake Type
+  a#header_button_add.button(href='/shopping') Shopping
+  a#header_button_add.button(href='/register') Register
   .search_items
     input.search_bar(type='text')
     button.search_icon(type='button') &#x1F50E;&#xFE0E;
   a#login-button.button(href='/add-employee') Login
 style.
   *{padding: 0; margin: 0;}
+  /* Bainrow title */
+  /* #header_button {
+  background-image: linear-gradient(to top left, red, indigo, blue, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+  } */
   #login-button{
   /*Logged in - green
   background-color: #4bd441;
@@ -25,6 +30,7 @@ style.
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-bottom: 75px;
   }
   .button{
   font-family: 'Product Sans';
@@ -40,10 +46,7 @@ style.
   font-weight: bolder;
   }
   .search_bar{
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left : 10px;
   border: none;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -69,3 +72,19 @@ style.
   padding-left: 10px;
   padding-right: 10px;
   }
+  @media only screen and (max-width: 1320px) {
+  .button {
+  font-size: 20px;
+  }
+  }
+  @media only screen and (max-width: 1110px) {
+  .search_items {
+  display: none;
+  }
+  }
+  @media only screen and (max-width: 660px) {
+  .header {
+  display: none;
+  }
+  }
+include spacer
