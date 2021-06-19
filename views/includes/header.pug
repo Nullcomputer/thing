@@ -1,0 +1,71 @@
+.header
+  a#header_button.button(href='/') Cake.
+  a#header_button_add.button(href='/add-employee') __template__
+  a#header_button_add.button(href='/add-employee') __template__
+  a#header_button_add.button(href='/add-employee') __template__
+  a#header_button_add.button(href='/add-employee') __template__
+  a#header_button_add.button(href='/add-employee') __template__
+  .search_items
+    input.search_bar(type='text')
+    button.search_icon(type='button') &#x1F50E;&#xFE0E;
+  a#login-button.button(href='/add-employee') Login
+style.
+  *{padding: 0; margin: 0;}
+  #login-button{
+  /*Logged in - green
+  background-color: #4bd441;
+  color: #FFFFFF;/**/
+  /*logged out - red*/
+  background-color: #fc1e1e;
+  color: #FFFFFF;/**/
+  }
+  .header{
+  background: linear-gradient(to right, #ff03b3, #ff7b00);
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  }
+  .button{
+  font-family: 'Product Sans';
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  margin: 10px;
+  font-weight: bolder;
+  }
+  .search_bar{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  outline: none;
+  font-size: 24px;
+  font-family: 'Product Sans';
+  }
+  .search_items{
+  margin-left: auto;
+  margin-right: 25px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: inherit;
+  display: flex;
+  }
+  .search_icon{
+  padding: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: none;
+  font-family: 'Product Sans';
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
