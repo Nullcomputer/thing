@@ -1,0 +1,69 @@
+doctype html
+head
+  title Login
+  link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
+// Header goes here
+.login
+  form
+    label.label(for='username') Username
+    br
+    input#username.box(type='text')
+    label.rec(for='username') 4 characters +, no spaces
+    br
+    br
+    label.label(for='password') Password
+    br
+    input#password.box(type='password')
+    label.rec(for='username') 6 characters +, no spaces or punctuation except @ ! _
+    br
+    label.check-desc
+      | Remember me? 
+      input#check(type='checkbox' style='transform: scale(1.25); padding: 2px;')
+  center
+    button.submit(onclick="login_register()") Submit
+style.
+  *{padding:0%; margin: 0%;}
+  .login{
+  margin-top: 25px;
+  width: 70%;
+  margin: auto;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #d4d4d4;
+  box-shadow: 0 0 30px #d4d4d4
+  }
+  form{
+  font-family: 'Product Sans';
+  }
+  .box{
+  width: 70%;
+  border: none;
+  border-bottom: 0.5px grey solid;
+  font-size: 24px;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 5px;
+  }
+  .box:focus{
+  outline: none;
+  }
+  .rec{
+  color: grey;
+  font-size: 16px;
+  margin-left: 5px;
+  }
+  .submit{
+  font-family: 'Product Sans';
+  font-size: 25px;
+  margin-top: 25px;
+  width: 30%;
+  padding: 15px;
+  background-color: rgb(110, 110, 110);
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 0 30px rgb(110, 110, 110);
+  }
+  .submit:focus{
+  outline: none;
+  }
