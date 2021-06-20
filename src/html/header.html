@@ -12,10 +12,17 @@
         <button type="button" class="search_icon">🔎︎</button>
     </div>
     <a href="/add-employee" class="button" id="login-button">Login</a>
+    <a href="/add-employee" class="button" id="cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+        </svg>
+    </a>
 </div>
 
 <style>
     *{padding: 0; margin: 0;}
+
+    #cart{padding: 15px;}
 
     /* Bainrow title */
     /* #header_button {
@@ -23,11 +30,11 @@
         color: transparent;
     } */
     #login-button{
-        /*Logged in - green
+        /*Logged in - green*/
         background-color: #4bd441;
         color: #FFFFFF;/**/
 
-        /*logged out - red*/
+        /*logged out - red
         background-color: #fc1e1e;
         color: #FFFFFF;/**/
     }

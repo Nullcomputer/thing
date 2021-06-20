@@ -1,0 +1,38 @@
+include includes/header.pug
+
+p.login_title Login.
+style.
+  .login_title{
+  font-size: 108px;
+  font-family: 'Product Sans';
+  margin-left: 45px;
+  }
+  
+include includes/login-form.pug
+
+center
+  p.or -or-
+center
+  a(href='/register')
+    button.register Create a new account
+style.
+  .or{
+  font-family: 'Product Sans';
+  font-size: 26px;
+  margin-bottom: 20px;
+  }
+  .register{
+  font-family: 'Product Sans';
+  font-size: 25px;
+  width: 21.5%;
+  background-color: rgb(110, 110, 110);
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 0 45px rgb(110, 110, 110);
+  }
+script.
+  function login_register(){
+    alert(document.getElementById('username').value + ', ' + document.getElementById('password').value);
+  }

@@ -18,13 +18,51 @@
             <br>
             <input class="box" type="password" id="password">
             <label class="rec" for="username">6 characters +, no spaces or punctuation except @ ! _</label>
+            
+            <br>
+            <label class="check-desc"> Remember me? <input type="checkbox" id="check" style="transform: scale(1.25); padding: 2px;"></label>
         </form>
         <center><button class="submit">Submit</button></center>
     </div>
 
+    <center><p class="or">-or-</p></center>
+    <center><a href="/register"><button class="register">Create a new account</button></a></center>
+    <style>
+        .or{
+        font-family: 'Product Sans';
+        font-size: 26px;
+        margin-bottom: 20px;
+        }
+
+        .register{
+            font-family: 'Product Sans';
+            font-size: 25px;
+            width: 21.5%;
+            background-color: rgb(110, 110, 110);
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            box-shadow: 0 0 30px rgb(110, 110, 110);
+        }
+    </style>
+    
 </body>
 <style>
     *{padding:0%; margin: 0%;}
+
+    .submit{
+        font-family: 'Product Sans';
+        font-size: 25px;
+        margin-top: 25px;
+        width: 30%;
+        padding: 15px;
+        background-color: rgb(110, 110, 110);
+        border: none;
+        border-radius: 15px;
+        color: #fff;
+        box-shadow: 0 0 30px rgb(110, 110, 110);
+    }
 
     .login{
         width: 70%;
@@ -58,19 +96,6 @@
         color: grey;
         font-size: 16px;
         margin-left: 5px;
-    }
-
-    .submit{
-        font-family: 'Product Sans';
-        font-size: 25px;
-        margin-top: 25px;
-        width: 30%;
-        padding: 15px;
-        background-color: rgb(110, 110, 110);
-        border: none;
-        border-radius: 15px;
-        color: #fff;
-        box-shadow: 0 0 30px rgb(110, 110, 110);
     }
 
     .submit:focus{
