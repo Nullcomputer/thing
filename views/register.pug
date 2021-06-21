@@ -13,5 +13,8 @@ include includes/login-form.pug
 
 script.
   function login_register(){
-    alert("button was pressed");
+    alert(encrypt(document.getElementById('password').value));
+    alert(document.getElementById('username').value + ', ' + document.getElementById('password').value + ', ', document.getElementById('check').checked);
+    // #check = checkbox
+    // #check
   }
