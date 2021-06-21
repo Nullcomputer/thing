@@ -1,5 +1,5 @@
 .header
-  a#header_button.button(href='/') Cake.
+  a#header_button.button(href='/') cake.
   a#header_button_add.button(href='/events') Events
   a#header_button_add.button(href='/cake-type') Cake Type
   a#header_button_add.button(href='/shopping') Shopping
@@ -10,6 +10,7 @@
   a#cart.button(href='/cart')
     svg.bi.bi-bag(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
       path(d='M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z')
+  a#settings.button(href='/settings') ?
 style.
   *{padding: 0; margin: 0;}
   #cart{padding: 15px;}
@@ -20,23 +21,24 @@ style.
   } */
   #login-button{
   /*Logged in - green*/
-  background-color: #4bd441;
+  background-color: #9832a6;
   color: #FFFFFF;/**/
   /*logged out - red
   background-color: #fc1e1e;
   color: #FFFFFF;/**/
   }
   .header{
-  background: linear-gradient(to right, #ff03b3, #ff7b00);
+  background: linear-gradient(to right, #ff909f, #ffff48);
   position: fixed;
   display: flex;
   flex-direction: row;
   width: 100%;
+  border-bottom: 1px solid grey;
   }
   .button{
   font-family: 'Product Sans';
   font-size: 30px;
-  color: #000;
+  color: #221E22;
   text-decoration: none;
   background-color: #FFFFFF;
   padding: 7px;
