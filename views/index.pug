@@ -1,25 +1,87 @@
 include includes/header.pug
 
 #home
-    p.title cake.
+    #welcome
+        p.title cake.
+        p.slogan we are cake.
+    a.btn#down(href='#down') V
+    .tile-img-right
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
+        .subtitle#about
+            p.right welcome to this about us page
+        p.content cake. is a company dedicated to making your cake... cakey. (but to the right)
     br
-    p.content a super duper landing page for cake. the company
+    .tile-img-left
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
+        .subtitle
+            p.left welcome to this about us page
+        p.content cake. is a company dedicated to making your cake... cakey. (but to the left)
+    
+        
 style.
+    *{padding: 0; margin: 0;}
     body {
         background: #d8f1e6;
     }
-    .title {
-        font-size: 100px;
+    #welcome {
+        padding: 185px 100px;
     }
     #home {
-        margin: 0px 20px;
-        padding: 10px;
+        margin: 10px 20px;
+        padding: 20px 0px;
         background: white;
         text-align: center;
         color: #221E22;
     }
-    .content {
-        padding: 100px;
-        background: #F9FAE8;
-        margin: 0px 20px;
+
+    .title {
+        font-size: 100px;
     }
+    
+    .subtitle {
+        font-size: 50px;
+        padding: 0px 0px 20px 20px;
+    }
+    .left {
+        text-align: left;
+    }
+    .right {
+        text-align: right;
+    }
+
+    .btn {
+        background-color: #9832a6;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 16px 2px;
+        border-radius: 12px;
+    }
+    .tile-img-right, .tile-img-left {
+        text-align: center;
+        background: #F9FAE8;
+    }
+    .tile-img-right img {
+        float: right;
+        margin: 25px 40px;
+        height: 180px;
+        border: 1px solid black;
+    }
+    .tile-img-left img {
+        float: left;
+        margin: 25px 40px;
+        height: 180px;
+        border: 1px solid black;
+    }
+
+    .content {
+        font-size: 30px;
+        padding: 10px 100px 100px;
+        margin: 0px 20px;
+        height: 110px;
+    }
+    
