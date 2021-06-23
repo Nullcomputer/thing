@@ -1,5 +1,6 @@
 include includes/header.pug
-
+head
+    title cake.
 #home
     #welcome
         p.title cake.
@@ -16,10 +17,19 @@ include includes/header.pug
         .subtitle
             p.left welcome to this about us page
         p.content cake. is a company dedicated to making your cake... cakey. (but to the left)
+    br
+    .tile-img-right
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
+        .subtitle
+            p.right welcome to this about us page
+        p.content cake. is a company dedicated to making your cake... cakey. (but to the right and DIFFERNT)
     
         
 style.
     *{padding: 0; margin: 0;}
+    html {
+        scroll-behavior: smooth;
+    }
     body {
         background: #d8f1e6;
     }
@@ -42,6 +52,7 @@ style.
         font-size: 50px;
         padding: 0px 0px 20px 20px;
     }
+
     .left {
         text-align: left;
     }
@@ -60,28 +71,58 @@ style.
         font-size: 16px;
         margin: 16px 2px;
         border-radius: 12px;
+        text-align: center;
+        width: 200px;
     }
     .tile-img-right, .tile-img-left {
         text-align: center;
         background: #F9FAE8;
     }
-    .tile-img-right img {
-        float: right;
+    .tile-img-right img, .tile-img-left img {
         margin: 25px 40px;
         height: 180px;
         border: 1px solid black;
+    }
+    .tile-img-right img {
+        float: right;
     }
     .tile-img-left img {
         float: left;
-        margin: 25px 40px;
-        height: 180px;
-        border: 1px solid black;
     }
-
     .content {
         font-size: 30px;
         padding: 10px 100px 100px;
         margin: 0px 20px;
-        height: 110px;
     }
-    
+
+    @media only screen and (max-width: 1320px) {
+        .btn {
+            width: 100px;
+        }
+        .subtitle {
+            font-size: 40px;
+        }
+    }
+    @media only screen and (max-width: 1110px) {
+        .btn {
+            width: 75px;
+        }
+        .subtitle {
+            font-size: 35px;
+        }
+    }
+    @media only screen and (max-width: 660px) {
+        .btn {
+            width: 30px;
+        }
+        .tile-img-right img, .tile-img-left img {
+            height: 100px;
+        }
+        .left, .right {
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 35px;
+            padding: 0px;
+        }
+    }
