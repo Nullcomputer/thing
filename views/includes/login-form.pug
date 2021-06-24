@@ -6,45 +6,56 @@ head
   form
     label.label(for='username') Username
     br
-    input#username.box(type='text')
+    input#username.box(type='text' title="4 characters +, no spaces")
+    br
     label.rec(for='username') 4 characters +, no spaces
+    br
     br
     br
     label.label(for='password') Password
     br
-    input#password.box(type='password')
+    input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")
+    br
     label.rec(for='username') 6 characters +, no spaces or punctuation except @ ! _
+    br
     br
     label.check-desc
       | Remember me? 
       input#check(type='checkbox' style='transform: scale(1.25); padding: 2px;')
   center
     button.submit(onclick="login_register()") Submit
+    
 style.
   *{padding:0%; margin: 0%;}
+  
   .login {
-    margin-top: 25px;
-    width: 70%;
     margin: auto;
-    padding: 25px;
+    padding: 10px 25px;
     border-radius: 25px;
-    background-color: #d4d4d4;
-    box-shadow: 0 0 30px #d4d4d4;
+    text-align: center;
+    border: 1px solid black;
   }
   form {
     font-family: 'Product Sans';
   }
   .box {
-    width: 70%;
+    width: 350px;
     border: none;
     border-bottom: 0.5px grey solid;
     font-size: 24px;
     border-radius: 6px;
     padding: 5px;
-    padding-left: 5px;
+    background: linear-gradient(to right, rgba(255, 144, 159, 0.2), rgba(255, 255, 42, 0.2));
+    transition-duration: 0.2;
   }
   .box:focus {
     outline: none;
+    background: white;
+    width: 352px;
+    border: 0.7px grey solid;
+    border-bottom: 0.8px black solid;
+    font-size: 22px;
+    padding: 5.3px;
   }
   .rec {
     color: grey;
@@ -54,14 +65,11 @@ style.
   .submit {
     font-family: 'Product Sans';
     font-size: 25px;
-    margin-top: 25px;
-    width: 30%;
     padding: 15px;
-    background-color: rgb(110, 110, 110);
     border: none;
     border-radius: 15px;
-    color: #fff;
-    box-shadow: 0 0 30px rgb(110, 110, 110);
+    text-align: center;
+    margin: 20px;
   }
   .submit:focus {
     outline: none;

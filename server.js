@@ -11,37 +11,42 @@ server.set('view engine', 'pug');
 
 // index
 server.get('/', (req, res) => {
-    res.render('index');
+    res.render('index');                    // DEFAULT
 });
 
+// events
 server.get('/events', (req, res) => {
-    res.render('construction.pug');
+    res.render('construction.pug');         // CLOSED
 });
 
+// cake-type
 server.get('/cake-type', (req, res) => {
-    res.render('construction.pug');
+    res.render('construction.pug');         // CLOSED
 });
 
+// shopping
 server.get('/shopping', (req, res) => {
-    res.render('construction.pug');
+    res.render('construction.pug');         // CLOSED
 });
 
 // login
 server.get('/login', (req, res) => {
-    res.render('login.pug');
+    res.render('login.pug');                // OPEN
 });
 
 // register
 server.get('/register', (req, res) => {
-    res.render('register.pug');
+    res.render('register.pug');             // OPEN
 });
 
+// cart
 server.get('/cart', (req, res) => {
-    res.render('construction.pug');
+    res.render('construction.pug');         // CLOSED
 });
 
+// settings
 server.get('/settings', (req, res) => {
-    res.render('settings.pug');
+    res.render('settings.pug');             // OPEN
 });
 
 //Run server

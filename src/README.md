@@ -1,6 +1,6 @@
-# Cake.
-## What is Cake.?
-Cake is a pioneering cake selling website that will revolutionise the desert serving industry
+# cake.
+## What is cake.?
+cake. is a pioneering cake selling website that will revolutionise the desert serving industry
 ##
 ## Roles
 ### Front end
@@ -16,8 +16,14 @@ Matthew Keenan
 Node.js  
 Pug(Jade)  
 Express.js  
-SQL  
+SQL
+Cookies
+HTTPS handling
 
 
 # notes
 don't mess with server.js or anything in views unless you know what you are doing
+
+# running cake.
+just run the batch file and let the computer do the rest ;)
+(by rest I mean launch the server and import the dependancies/modules)
