@@ -5,7 +5,11 @@ head
     #welcome
         p.title cake.
         p.slogan we are cake.
-    a.btn#down(href='#down') V
+    a.btn#down(href='#down')
+        svg.bi.bi-arrow-down-short(xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' viewbox='0 0 16 16')
+            path(fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z')
+
+
     .tile-img-right
         img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
         .subtitle#about
@@ -26,6 +30,10 @@ head
     
         
 style.
+    p{
+        font-family: 'Product Sans';
+    }
+
     *{padding: 0; margin: 0;}
     html {
         scroll-behavior: smooth;
