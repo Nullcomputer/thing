@@ -1,0 +1,67 @@
+nav
+    p#title settings
+    ul
+        a(href="#1")
+            li(onclick="one()") One
+        a(href='#2')
+            li(onclick="two()")  Two
+        a(href='#3')
+            li(onclick="three()")  Three
+        a(href="#4")
+            li(onclick="four()")  Four
+a#home(href="/") home
+style.
+    *{padding: 0; margin: 0;}
+    nav {
+        width: 400px;
+        height: 530px;
+        margin: 20px 0px 0px 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 20px 0px 0px 0px;
+        float: left;
+    }
+    li {
+        list-style: none;
+        margin: 0px 0px 0px 20px;
+        padding: 10px 125 10px 5px;
+        width: 125px
+    }
+    li:hover {
+        background: lightgoldenrodyellow;
+    }
+    a  {
+        text-decoration: none;
+        color: black
+    }
+    #title {
+        font-size: 70px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    #home {
+        font-size: 30px;
+        text-align: center;
+        width: 410px;
+        margin: 20px 30px 0px 0px;
+        padding: 10px;
+        background: white;
+        border-radius: 20px;
+        float: right;
+    }
+    #home:hover {
+        background: lightgoldenrodyellow;
+    }
+script.
+    function one() {
+        document.getElementById("content").innerHTML = "1";
+    }
+    function two() {
+        document.getElementById("content").innerHTML = "2";
+    }
+    function three() {
+        document.getElementById("content").innerHTML = "3";
+    }
+    function four() {
+        document.getElementById("content").innerHTML = "4";
+    }

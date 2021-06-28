@@ -10,36 +10,35 @@ head
             path(fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z')
 
 
-    .tile-img-right
-        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
-        .subtitle#about
+    .tile-right
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
+        .subtitle#about 
             p.right welcome to this about us page
         p.content cake. is a company dedicated to making your cake... cakey. (but to the right)
     br
-    .tile-img-left
-        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
+    .tile-left
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
         .subtitle
             p.left welcome to this about us page
         p.content cake. is a company dedicated to making your cake... cakey. (but to the left)
     br
-    .tile-img-right
-        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake logo')
+    .tile-right
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
         .subtitle
             p.right welcome to this about us page
         p.content cake. is a company dedicated to making your cake... cakey. (but to the right and DIFFERNT)
     
         
 style.
-    p{
-        font-family: 'Product Sans';
-    }
-
     *{padding: 0; margin: 0;}
     html {
         scroll-behavior: smooth;
     }
     body {
-        background: #d8f1e6;
+        background: linear-gradient(to right, #42f5a4, #42c2f5);
+    }
+    p {
+        font-family: 'Product Sans';
     }
     #welcome {
         padding: 185px 100px;
@@ -69,7 +68,7 @@ style.
     }
 
     .btn {
-        background-color: #9832a6;
+        background-color: #42f5a4;
         border: none;
         color: white;
         padding: 20px;
@@ -77,24 +76,31 @@ style.
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        margin: 16px 2px;
+        margin: 0px 2px 40px 2px;
         border-radius: 12px;
         text-align: center;
         width: 200px;
     }
-    .tile-img-right, .tile-img-left {
+    .tile-right, .tile-left {
         text-align: center;
-        background: #F9FAE8;
+        background: lightgoldenrodyellow;
+        margin: 0px 20px;
     }
-    .tile-img-right img, .tile-img-left img {
+    .tile-right img, .tile-left img {
         margin: 25px 40px;
         height: 180px;
         border: 1px solid black;
     }
-    .tile-img-right img {
+    .tile-right {
+        border-radius: 0px 20px;
+    }
+    .tile-left {
+        border-radius: 20px 0px;
+    }
+    .tile-right img {
         float: right;
     }
-    .tile-img-left img {
+    .tile-left img {
         float: left;
     }
     .content {
@@ -123,7 +129,7 @@ style.
         .btn {
             width: 30px;
         }
-        .tile-img-right img, .tile-img-left img {
+        .tile-right img, .tile-left img {
             height: 100px;
         }
         .left, .right {

@@ -11,22 +11,28 @@ head
     label.rec(for='username') 4 characters +, no spaces
     br
     br
+    label.label(for='email') Email
+    br
+    input#email.box(type='email' title="Must be formatted conventionally")
+    br
+    label.rec(for='email') Must be formatted conventionally
+    br
     br
     label.label(for='password') Password
     br
     input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")
     br
-    label.rec(for='username') 6 characters +, no spaces or punctuation except @ ! _
+    label.rec(for='password') 6 characters +, no spaces or punctuation except @ ! _
     br
     br
     label.check-desc
       | Remember me? 
       input#check(type='checkbox' style='transform: scale(1.25); padding: 2px;')
   center
-    button.submit(onclick="login()") Submit
+    button.submit(onclick="register()") Submit
     
 style.
-  *{padding:0%; margin: 0%;}
+  *{padding:0%; margin: 0;}
   
   .login {
     margin: auto;
@@ -52,6 +58,9 @@ style.
   .box:focus {
     outline: none;
     box-shadow: 0 4px 8px 0 #aaaaaa, 0 6px 20px 0 #ffffff;
+  }
+  .label {
+      font-size: 25px;
   }
   .rec {
     color: grey;

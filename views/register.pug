@@ -1,21 +1,28 @@
 include includes/header.pug
 head
   link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
-p.register_title Register.
+#register
+  p.register_title register
+  include includes/register-form.pug
 
 style.
+  body {
+    background: linear-gradient(to right, #42f5a4, #42c2f5);
+  }
+  #register {
+    background: white;
+    margin: 0px 20px 10px 20px;
+  }
   .register_title{
     font-size: 108px;
     font-family: 'Product Sans';
-    margin-left: 45px;
+    text-align: center;
+    padding-bottom: 15px;
   }
 
-
-include includes/login-form.pug
-
 script.
-  function login_register(){
-    alert(encrypt(document.getElementById('password').value));
+  function register(){
+    alert(document.getElementById('username').value + ', ' + document.getElementById('password').value + ', ' + ', ' + document.getElementById('email').value + ', ', document.getElementById('check').checked);
     // #check = checkbox
-    // #check
+    ///#check
   }
