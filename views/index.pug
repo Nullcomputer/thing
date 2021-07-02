@@ -30,12 +30,12 @@ head
     
         
 style.
-    *{padding: 0; margin: 0;}
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow;}
     html {
         scroll-behavior: smooth;
     }
     body {
-        background: linear-gradient(to right, #42f5a4, #42c2f5);
+        background: linear-gradient(to right, var(--GREENY), var(--BLUEY));
     }
     p {
         font-family: 'Product Sans';
@@ -68,7 +68,7 @@ style.
     }
 
     .btn {
-        background-color: #42f5a4;
+        background-color: var(--GREENY);
         border: none;
         color: white;
         padding: 20px;
@@ -83,7 +83,7 @@ style.
     }
     .tile-right, .tile-left {
         text-align: center;
-        background: lightgoldenrodyellow;
+        background: var(--YELLOWY);
         margin: 0px 20px;
     }
     .tile-right img, .tile-left img {
