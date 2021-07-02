@@ -51,8 +51,8 @@ server.get('/settings', (req, res) => {
 
 
 // API
-const r = '/api/';
-server.get(r+'login', (req, res) => {
+const r = '/api';
+server.get(r + '/login', (req, res) => {
     res.send('success!');
 });
 

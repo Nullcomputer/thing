@@ -1,14 +1,26 @@
 script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
 script.
   function request(type, url, json=''){
-    if(type === 'GET'){
-      return axios.get(url);
-    } else if(type === 'POST'){
-      var _ = '';
-      axios.post(url, json).then((response) => {
-        _ = response;
-      });
 
-      return _;
+    const get = async () => {
+      const response = await axios.get(url);
+      return response
     }
+
+    if(type === 'GET'){
+      var ret = get();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    return ret;
   }
