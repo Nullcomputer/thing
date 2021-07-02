@@ -1,22 +1,14 @@
+script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
 script.
-  function request(type, url){
-    var x;
-    switch (type){
-      case 'GET':
-        x = requests.get(url);
-        break;
-      case 'POST':
-        x = requests.post(url);
-        break;
-      case 'PUT':
-        x = requests.put(url);
-        break;
-      case 'DELETE':
-        x = requests.delete(url);
-        break;
-      default:
-        x = 'FAIL';
-        alert('Internal Error');
+  function request(type, url, json=''){
+    if(type === 'GET'){
+      return axios.get(url);
+    } else if(type === 'POST'){
+      var _ = '';
+      axios.post(url, json).then((response) => {
+        _ = response;
+      });
+
+      return _;
     }
-    return x;
   }
