@@ -4,9 +4,9 @@ head
 // Header goes here
 .login
   form(autocomplete='off')
-    label.label(for='username') Username
+    label.label(for='username') Email
     br
-    input#username.box(type='text' title="4 characters +, no spaces")
+    input#email.box(type='text' title="4 characters +, no spaces")
     br
     label.rec(for='username') 4 characters +, no spaces
     br
@@ -16,7 +16,7 @@ head
     br
     input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")
     br
-    label.rec(for='username') 6 characters +, no spaces or punctuation except @ ! _
+    label.rec(for='username') 6 characters +, no spaces or punctuation except ~ ! _
     br
     br
     label.check-desc
@@ -24,7 +24,11 @@ head
       input#check(type='checkbox' style='transform: scale(1.25); padding: 2px;')
   center
     button.submit(onclick="login_register()") Submit
-    
+
+script.
+  document.querySelector('#email').addEventListener('keypress', function (e) {if (e.key === 'Enter') {document.getElementById('password').focus();}});  // Move along in process on enter keypress
+  document.querySelector('#password').addEventListener('keypress', function (e) {if (e.key === 'Enter') {login_register();}});                          // Move along in process on enter keypress
+
 style.
   *{padding:0%; margin: 0%;}
   

@@ -1,0 +1,36 @@
+include includes/header.pug
+
+head
+  title cake - 404
+  link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
+p#desc error
+p#title 404
+p#body
+  | This page is not recognised
+  br
+  | please go to a valid page
+  br
+  a#link(href='/') Home
+style.
+  *{margin: 0; padding: 0;}
+  #desc{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Product Sans';
+  margin-top: 25px;
+  }
+  #title{
+  text-align: center;
+  font-size: 125px;
+  font-family: 'Product Sans';
+  margin: -19px;
+  }
+  #body{
+  text-align: center;
+  font-size: 96px;
+  font-family: 'Product Sans';
+  }
+  #link{
+  text-decoration: none;
+  color: blue;
+  }

@@ -7,11 +7,11 @@ const path = require('path');
 //set-up
 server.set('view engine', 'pug');
 
-// ROUTERS
 
+// GETS
 // index
 server.get('/', (req, res) => {
-    res.render('index');                    // DEFAULT
+    res.render('index');                    // INDEX
 });
 
 // events
@@ -46,10 +46,27 @@ server.get('/cart', (req, res) => {
 
 // settings
 server.get('/settings', (req, res) => {
-    res.render('settings.pug');             // OPEN
+    res.render('construction.pug');         // OPEN
 });
 
+
+// API
+const r = '/api/';
+server.get(r+'login', (req, res) => {
+    res.send('success!');
+});
+
+
+
+
+
+
 //Run server
+// 404 - NEEDS TO BE LAST ROUTE
+server.get('*', (req, res) => {
+    res.render('404.pug');
+});
+
 server.listen(PORT, () => {
     console.log(`server running on http://localhost:${PORT}/`);
 });

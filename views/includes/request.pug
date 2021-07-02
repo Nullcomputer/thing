@@ -1,0 +1,22 @@
+script.
+  function request(type, url){
+    var x;
+    switch (type){
+      case 'GET':
+        x = requests.get(url);
+        break;
+      case 'POST':
+        x = requests.post(url);
+        break;
+      case 'PUT':
+        x = requests.put(url);
+        break;
+      case 'DELETE':
+        x = requests.delete(url);
+        break;
+      default:
+        x = 'FAIL';
+        alert('Internal Error');
+    }
+    return x;
+  }

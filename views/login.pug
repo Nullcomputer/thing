@@ -31,9 +31,19 @@ style.
     border-radius: 10px;
     text-align: center;
   }
+
+include includes/request.pug
+
 script.
   function login_register(){
-    alert(document.getElementById('username').value + ', ' + document.getElementById('password').value + ', ', document.getElementById('check').checked);
-    // #check = checkbox
-    ///#check
+    //ADD ENCRYPTION
+    const username =  document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const checkbox = document.getElementById('check').checked;
+
+    const a = request('GET', '/api/login');
+    console.log(a);
+
+
+    alert(`${username}, ${password}, ${checkbox}`);
   }
