@@ -1,2 +1,137 @@
 head
     title settings
+nav
+    p#title settings
+    ul
+        a(href="#account")
+            li Account
+        a(href='#themes')
+            li Themes
+        a(href='#more')
+            li More
+        a(href="#important")
+            li Important
+
+#main
+    #account
+        p.subtitle Account
+        p.content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+    #themes
+        p.subtitle Themes
+        p.content Customise your themes. Light is the default.
+        .themes
+            form
+                input.themeCheck#light(type='radio' name='themes')
+                label.themeLabel(for="#light") Light
+                br
+                input.themeCheck#dark(type='radio' name='themes')
+                label.themeLabel(for="#dark") Dark
+                br
+                input.themeCheck#gay(type='radio' name='themes')
+                label.themeLabel(for="#gay") Gay
+                br
+                input#submit(type='submit' value="submit")
+    #more
+        p.subtitle More
+        p.content Sexi.
+    #important
+        p.subtitle Important
+        p.content Delete account. Love that jazz.
+
+
+
+style.
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow;}
+    body {
+        background: linear-gradient(to right, var(--GREENY), var(--BLUEY));
+    }
+    nav {
+        width: 20%;
+        height: 90%;
+        margin: 20px 0px 0px 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 20px 0px 0px 0px;
+        float: left;
+    }
+    li {
+        list-style: none;
+        margin: 0px 0px 0px 20px;
+        padding: 10px 125 10px 5px;
+        width: 40%;
+    }
+    li:hover {
+        background: var(--YELLOWY);
+    }
+    a  {
+        text-decoration: none;
+        color: black
+    }
+    #title {
+        font-size: 70px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    #home {
+        font-size: 30px;
+        text-align: center;
+        width: 410px;
+        margin: 15px 0px 0px 25px;
+        padding: 10px;
+        background: white;
+        border-radius: 20px;
+        float: left;
+    }
+    #home:hover {
+        background: var(--YELLOWY);
+    }
+
+    #main {
+        float: right;
+        margin: 20px 20px 0px 0px;
+        height: 90%;
+        width: 70%;
+        background: white;
+        padding: 20px;
+        border-radius: 0px 0px 20px 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    #main::-webkit-scrollbar {
+        display: none;
+    }
+    #account, #themes, #more {
+        height: 700px;
+    }
+    #important {
+        height: 620px;
+    }
+    #submit {
+        padding: 2px 10px;
+        margin: 6px 0px 0px 0px;
+        background: var(--YELLOWY);
+        border: none;
+    }
+    .themeLabel {
+        padding: 0px 0px 0px 10px;
+    }
+    .themes {
+        margin: 0px 0px 0px 50px;
+    }
+    .subtitle {
+        font-size: 40px;
+        font-weight: bolder;
+    }
+    .content {
+        font-size: 20px;
+        margin: 5px 5px 5px 20px;
+    }
+
+    @media only screen and (max-width: 1265px) {
+        .subtitle {
+            font-size: 25px;
+        }
+    }
