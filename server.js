@@ -2,10 +2,13 @@ const express = require('express');
 const server = express();
 const PORT = 3000;
 
+const sha256 = require('js-sha256');
+
 const pug = require("pug");
 const path = require('path');
 //set-up
 server.set('view engine', 'pug');
+server.use(express.json()); // JSON
 
 
 // GETS
@@ -52,14 +55,18 @@ server.get('/settings', (req, res) => {
 
 // API
 const r = '/api';
-server.get(r + '/login', (req, res) => {
-    res.send('success!');
+server.post(r + '/login', (req, res) => {
+    const obj = req.body;
+
+    const email = obj.email;
+    const password = sha256(obj.password);
+
+    console.log(email);
+    console.log(password);
+    console.log();
+
+    res.send('success');
 });
-
-
-
-
-
 
 //Run server
 // 404 - NEEDS TO BE LAST ROUTE

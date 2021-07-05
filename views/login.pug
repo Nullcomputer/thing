@@ -15,7 +15,7 @@ center
   p.or -or-
 center
   a(href='/register')
-    button.register Create a new account
+    button.register Create a new account-
 style.
   .or{
     font-family: 'Product Sans';
@@ -32,17 +32,27 @@ style.
     text-align: center;
   }
 
-include includes/request.pug
-
 script.
-  function login_register(){
+  async function login_register(){
     //ADD ENCRYPTION
-    const username =  document.getElementById('email').value;
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const checkbox = document.getElementById('check').checked;
 
-    const a = request('GET', '/api/login');
-    console.log(a);
 
-    alert(`${username}, ${password}, ${checkbox}`);
+    let payload = {
+      email: "null",
+      password: "null"
+    }
+
+    payload.email = email;
+    payload.password = password;
+
+    let response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',},
+      body: JSON.stringify(payload)
+    });
+    let text = await response.text();
+    console.log(text);
   }

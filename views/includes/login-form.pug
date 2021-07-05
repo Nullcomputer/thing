@@ -28,6 +28,7 @@ head
 script.
   document.querySelector('#email').addEventListener('keypress', function (e) {if (e.key === 'Enter') {document.getElementById('password').focus();}});  // Move along in process on enter keypress
   document.querySelector('#password').addEventListener('keypress', function (e) {if (e.key === 'Enter') {login_register();}});                          // Move along in process on enter keypress
+  function toggleVisibility(){var x = document.getElementById('password').type;if(x === 'password'){x = 'text';} else {x = 'password';}}
 
 style.
   *{padding:0%; margin: 0%;}
