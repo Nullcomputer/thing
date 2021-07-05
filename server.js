@@ -49,7 +49,7 @@ server.get('/cart', (req, res) => {
 
 // settings
 server.get('/settings', (req, res) => {
-    res.render('construction.pug');         // OPEN
+    res.render('settings.pug');         // OPEN
 });
 
 
@@ -68,7 +68,7 @@ server.post(r + '/login', (req, res) => {
     res.send('success');
 });
 
-//Run server
+// Run server
 // 404 - NEEDS TO BE LAST ROUTE
 server.get('*', (req, res) => {
     res.render('404.pug');

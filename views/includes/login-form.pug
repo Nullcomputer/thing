@@ -14,7 +14,9 @@ head
     br
     label.label(for='password') Password
     br
-    input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")
+    #password-toggle-wrap
+      input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")
+      button#toggle.box(onclick='toggleVisibility()') t
     br
     label.rec(for='username') 6 characters +, no spaces or punctuation except ~ ! _
     br
@@ -33,6 +35,19 @@ script.
 style.
   *{padding:0%; margin: 0%;}
   
+  #password {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 335px;
+  }
+
+  #toggle {
+    border-top-left-radius : 0px;
+    border-bottom-left-radius : 0px;
+    border-left: none;
+    width: auto;
+  }
+
   .login {
     margin: auto;
     margin-left: 10%;

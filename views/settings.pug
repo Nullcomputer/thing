@@ -9,10 +9,13 @@ nav
             li Themes
         a(href='#more')
             li More
-        a(href="#important")
+        a#important-title(href="#important")
             li Important
+        a#homewards-nav(href="/")
+            li Home
 
 #main
+    a#homewards-main(href="/") home
     #account
         p.subtitle Account
         p.content Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
@@ -35,10 +38,10 @@ nav
         p.subtitle More
         p.content Sexi.
     #important
-        p.subtitle Important
+        p.subtitle#important-title Important
         p.content Delete account. Love that jazz.
-
-
+        
+a#home(href="/") home
 
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow;}
@@ -47,7 +50,7 @@ style.
     }
     nav {
         width: 20%;
-        height: 90%;
+        height: 80%;
         margin: 20px 0px 0px 20px;
         padding: 20px;
         background: white;
@@ -57,11 +60,14 @@ style.
     li {
         list-style: none;
         margin: 0px 0px 0px 20px;
-        padding: 10px 125 10px 5px;
+        padding: 10px 125px 10px 5px;
         width: 40%;
     }
     li:hover {
         background: var(--YELLOWY);
+    }
+    #important-title {
+        color: red;
     }
     a  {
         text-decoration: none;
@@ -73,19 +79,25 @@ style.
         text-align: center;
     }
     #home {
+        height: auto;
+        width: 20%;
         font-size: 30px;
         text-align: center;
-        width: 410px;
-        margin: 15px 0px 0px 25px;
+        margin: 10px 0px 0px 25px;
         padding: 10px;
         background: white;
         border-radius: 20px;
         float: left;
     }
-    #home:hover {
+    #homewards-nav {
+        display: none;
+        list-style: none;
+        color: var(--BLUEY);
+    }
+    #home:hover{
         background: var(--YELLOWY);
     }
-
+    
     #main {
         float: right;
         margin: 20px 20px 0px 0px;
@@ -102,6 +114,15 @@ style.
     }
     #main::-webkit-scrollbar {
         display: none;
+    }
+    #homewards-main {
+        display: none;
+        position: sticky;
+        font-size: 17px;
+        top: 95%;
+        left: 95%;
+        background: var(--YELLOWY);
+        padding: 15px;
     }
     #account, #themes, #more {
         height: 700px;
@@ -129,9 +150,45 @@ style.
         font-size: 20px;
         margin: 5px 5px 5px 20px;
     }
-
-    @media only screen and (max-width: 1265px) {
-        .subtitle {
-            font-size: 25px;
+    @media only screen and (max-height: 635px) {
+        #home {
+            display: none;
+        }
+        #homewards-nav {
+            display: initial;
+        }
+        #main {
+            height: 85%;
+        }
+        nav {
+            height: 85%;
+        }
+    }
+    @media only screen and (max-height: 540px) {
+        #main {
+            margin: 10px 20px 0px 0px;
+        }
+        nav {
+            margin: 10px 0px 0px 20px;
+        }
+    }
+    @media only screen and (max-width: 1230px) {
+        #main {
+            width: 68%;
+        }
+    }
+    @media only screen and (max-width: 1020px) {
+        #main {
+            width: auto;
+            margin: 15px;
+        }
+        nav {
+            display: none;
+        }
+        #home {
+            display: none;
+        }
+        #homewards-main {
+            display: initial;
         }
     }
