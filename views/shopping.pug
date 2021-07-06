@@ -1,3 +1,93 @@
 include includes/header.pug
 head
     title shopping
+.grid-container
+
+    .tile#sponge-wrap
+        a#sponge(href="/shopping/sponge")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title Sponge
+            p.date 06/07/2021
+            p.author S Garrett
+
+    .tile#test-wrap
+        a#sponge(href="/shopping/test")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title TEST
+            p.date ??/??/??
+            p.author John Doe
+
+    .tile#test-wrap
+        a#sponge(href="/shopping/test")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title TEST
+            p.date ??/??/??
+            p.author John Doe
+
+    .tile#test-wrap
+        a#sponge(href="/shopping/test")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title TEST
+            p.date ??/??/??
+            p.author John Doe
+
+    .tile#test-wrap
+        a#sponge(href="/shopping/test")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title TEST
+            p.date ??/??/??
+            p.author John Doe
+
+    .tile#test-wrap
+        a#sponge(href="/shopping/test")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title TEST
+            p.date ??/??/??
+            p.author John Doe
+
+    .tile#test-wrap
+        a#sponge(href="/shopping/test")
+            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+            p.title TEST
+            p.date ??/??/??
+            p.author John Doe
+
+style.
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
+
+    .grid-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: 20px auto;
+    }
+    .grid-container a {
+        text-decoration: none;
+        color: black;
+    }
+    .grid-container a:hover {
+        color: var(--BLUEY);
+    }
+
+    .tile {
+        flex: 0 0 150px;
+        border: 1px var(--GREENY) solid;
+        margin: 10px;
+        padding: 10px 10px 10px 10px;
+    }
+    .tile img {
+        padding: 2px;
+        border-bottom: 1px var(--BLUEY) solid;
+        width: 100%;
+    }
+    .tile:hover {
+        box-shadow: 1px 2px 2px 1px var(--GREENY), 1px 2px 2px 1px var(--BLUEY);
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+    .date, .author {
+        font-size: 15px;
+    }

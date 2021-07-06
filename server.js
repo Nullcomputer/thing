@@ -29,7 +29,7 @@ server.get('/cake-type', (req, res) => {
 
 // shopping
 server.get('/shopping', (req, res) => {
-    res.render('construction.pug');         // CLOSED
+    res.render('shopping.pug');         // OPEN
 });
 
 // login

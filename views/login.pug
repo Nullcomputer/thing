@@ -2,12 +2,6 @@ include includes/header.pug
 head
   link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
 p.login_title Login.
-style.
-  .login_title{
-    font-size: 108px;
-    font-family: 'Product Sans';
-    margin-left: 45px;
-  }
   
 include includes/login-form.pug
 
@@ -17,6 +11,11 @@ center
   a(href='/register')
     button.register Create a new account
 style.
+  .login_title{
+    font-size: 108px;
+    font-family: 'Product Sans';
+    margin-left: 45px;
+  }
   .or {
     font-family: 'Product Sans';
     font-size: 24px;
