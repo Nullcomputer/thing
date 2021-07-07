@@ -2,13 +2,11 @@ include includes/header.pug
 head
   link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
 #register
-  p.register_title register
+  p.register_title Register.
   include includes/login-form.pug
 
 style.
-  body {
-    background: linear-gradient(to right, var(--GREENY), var(--BLUEY));
-  }
+  
   #register {
     background: white;
     margin: 0px 10px;
@@ -17,13 +15,31 @@ style.
   .register_title{
     font-size: 108px;
     font-family: 'Product Sans';
-    text-align: center;
     padding-bottom: 15px;
+    margin-left: 45px;
   }
 
 script.
-  function register(){
-    alert(document.getElementById('username').value + ', ' + document.getElementById('password').value + ', ' + ', ' + document.getElementById('email').value + ', ', document.getElementById('check').checked);
-    // #check = checkbox
-    ///#check
+  async function login_register(){
+    //ADD ENCRYPTION
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const checkbox = document.getElementById('check').checked;
+
+
+    let payload = {
+      email: "null",
+      password: "null"
+    }
+
+    payload.email = email;
+    payload.password = password;
+
+    let response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',},
+      body: JSON.stringify(payload)
+    });
+    let text = await response.text();
+    console.log(text);
   }

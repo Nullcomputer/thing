@@ -1,7 +1,7 @@
 head
   title Login
   link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
-// Header goes here
+
 .login
   form(autocomplete='off')
     label.label(for='username') Email
@@ -14,9 +14,7 @@ head
     br
     label.label(for='password') Password
     br
-    #password-toggle-wrap
-      input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")
-      button#toggle.box(onclick='toggleVisibility()') t
+    input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")  
     br
     label.rec(for='username') 6 characters +, no spaces or punctuation except ~ ! _
     br
@@ -28,18 +26,12 @@ head
     button.submit(onclick="login_register()") Submit
 
 script.
-  document.querySelector('#email').addEventListener('keypress', function (e) {if (e.key === 'Enter') {document.getElementById('password').focus();}});  // Move along in process on enter keypress
-  document.querySelector('#password').addEventListener('keypress', function (e) {if (e.key === 'Enter') {login_register();}});                          // Move along in process on enter keypress
-  function toggleVisibility(){var x = document.getElementById('password').type;if(x === 'password'){x = 'text';} else {x = 'password';}}
+  document.querySelector('#email').addEventListener('keypress', (e) => {if(e.key === 'Enter'){document.getElementById('password').focus();}});
+  document.querySelector('#password').addEventListener('keypress', (e) => {if(e.key === 'Enter'){login_register();}});
 
 style.
   *{padding:0%; margin: 0%;}
   
-  #password {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    width: 335px;
-  }
 
   #toggle {
     border-top-left-radius : 0px;

@@ -2,6 +2,7 @@ const express = require('express');
 const server = express();
 const PORT = 3000;
 
+const Cookies = require('cookies');
 const sha256 = require('js-sha256');
 
 const pug = require("pug");
@@ -55,6 +56,8 @@ server.get('/settings', (req, res) => {
 
 // API
 const r = '/api';
+
+// login
 server.post(r + '/login', (req, res) => {
     const obj = req.body;
 
@@ -67,6 +70,22 @@ server.post(r + '/login', (req, res) => {
 
     res.send('success');
 });
+
+// register
+server.post(r + '/register', (req, res) => {
+    const obj = req.body;
+
+    const email = obj.email;
+    const password = sha256(obj.password);
+
+    // <sql>
+
+    // </sql>
+});
+
+
+
+
 
 // Run server
 // 404 - NEEDS TO BE LAST ROUTE
