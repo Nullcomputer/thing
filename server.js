@@ -4,12 +4,29 @@ const PORT = 3000;
 
 const cookie = require('js-cookie');
 const sha256 = require('js-sha256');
+const sql = require('mysql');
+
 
 const pug = require("pug");
 const path = require('path');
 //set-up
 server.set('view engine', 'pug');
 server.use(express.json()); // JSON
+
+//SQL
+
+var con = sql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'mysql'
+});
+
+con.connect((err) => {
+    if(err) throw err;
+    console.log('sql->success');
+});
+
 
 
 // GETS
@@ -58,7 +75,7 @@ server.get('/settings', (req, res) => {
 const r = '/api';
 
 // login
-server.get(r + '/login', (req, res) => {
+server.post(r + '/login', (req, res) => {
     const obj = req.body;
 
     const email = obj.email;
@@ -79,10 +96,50 @@ server.post(r + '/register', (req, res) => {
     const password = sha256(obj.password);
 
     // <sql>
+    const payload = `VALUES ("${email}", "${password}")`;
+    
+    const json = {
+        success: "",
+        email: "",
+        password: "",
+        exists: ""
+    };
+    
+    let exists = false
+    const sCheck = `SELECT email FROM user_logins WHERE email = "${email}"`;
+    con.query(sCheck, (err, result) => {
+        if(result.length === 0){
+            exists = false;
+
+            if (exists === false) {
+                const sql = 'INSERT INTO user_logins (email, password)' + payload;
+                con.query(sql, (err, result) => {
+                    if(err){ 
+                        json.success = 'false';
+                        res.json(json);
+                    } else {
+                        json.success = 'true';
+                        res.json(json);
+                    }
+                   
+                });
+            }
+
+        } else {
+            exists = true;
+        }
+
+        json.success = exists ? 'false' : 'true';
+        json.email = email;
+        json.password = password;
+        json.exists = exists ? 'true' : 'false';
+        
+        res.json(json);
+
+    });
 
     // </sql>
-
-
+    
 });
 
 
