@@ -1,1 +1,139 @@
 include includes/header.pug
+head
+    title cake.
+#home
+    #welcome
+        p.title cake.
+        p.slogan we are cake.
+    a.btn#down(href='#down')
+        svg.bi.bi-arrow-down-short(xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' viewbox='0 0 16 16')
+            path(fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z')
+
+
+    .tile-right
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
+        .subtitle#about 
+            p.right welcome to this about us page
+        p.content cake. is a company dedicated to making your cake... cakey. (but to the right)
+    br
+    .tile-left
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
+        .subtitle
+            p.left welcome to this about us page
+        p.content cake. is a company dedicated to making your cake... cakey. (but to the left)
+    br
+    .tile-right
+        img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
+        .subtitle
+            p.right welcome to this about us page
+        p.content cake. is a company dedicated to making your cake... cakey. (but to the right and DIFFERNT)
+    
+        
+style.
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow;}
+    html {
+        scroll-behavior: smooth;    
+    }
+    p {
+        font-family: 'Product Sans';
+    }
+    #welcome {
+        padding: 185px 100px;
+    }
+    #home {
+        margin: 10px 20px;
+        padding: 20px 0px;
+        background: white;
+        text-align: center;
+        color: #221E22;
+    }
+
+    .title {
+        font-size: 100px;
+    }
+    
+    .subtitle {
+        font-size: 50px;
+        padding: 0px 0px 20px 20px;
+    }
+
+    .left {
+        text-align: left;
+    }
+    .right {
+        text-align: right;
+    }
+
+    .btn {
+        background-color: var(--GREENY);
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 0px 2px 40px 2px;
+        border-radius: 12px;
+        text-align: center;
+        width: 200px;
+    }
+    .tile-right, .tile-left {
+        text-align: center;
+        background: var(--YELLOWY);
+        margin: 0px 20px;
+    }
+    .tile-right img, .tile-left img {
+        margin: 25px 40px;
+        height: 180px;
+        border: 1px solid black;
+    }
+    .tile-right {
+        border-radius: 0px 20px;
+    }
+    .tile-left {
+        border-radius: 20px 0px;
+    }
+    .tile-right img {
+        float: right;
+    }
+    .tile-left img {
+        float: left;
+    }
+    .content {
+        font-size: 30px;
+        padding: 10px 100px 100px;
+        margin: 0px 20px;
+    }
+
+    @media only screen and (max-width: 1320px) {
+        .btn {
+            width: 100px;
+        }
+        .subtitle {
+            font-size: 40px;
+        }
+    }
+    @media only screen and (max-width: 1110px) {
+        .btn {
+            width: 75px;
+        }
+        .subtitle {
+            font-size: 35px;
+        }
+    }
+    @media only screen and (max-width: 660px) {
+        .btn {
+            width: 30px;
+        }
+        .tile-right img, .tile-left img {
+            height: 100px;
+        }
+        .left, .right {
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 35px;
+            padding: 0px;
+        }
+    }

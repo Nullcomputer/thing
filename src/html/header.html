@@ -17,16 +17,17 @@
             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
         </svg>
     </a>
+    a.btn(href='#') V
 </div>
 
 <style>
-    *{padding: 0; margin: 0;}
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow;}
 
     #cart{padding: 15px;}
 
     /* Bainrow title */
     /* #header_button {
-        background-image: linear-gradient(to top left, red, indigo, blue, yellow, orange, red);   -webkit-background-clip: text;
+        background-image: linear-gradient(to top left, red, indigo, var(--BLUEY), yellow, orange, red);   -webkit-background-clip: text;
         color: transparent;
     } */
     #login-button{
@@ -91,9 +92,9 @@
         padding-right: 10px;
     }
     
-    @media only screen and (max-width: 1320px) {
+    @media only screen and (max-width: 1230px) {
         .button {
-            font-size: 20px;
+            font-size: 30px;
         }
     }
 

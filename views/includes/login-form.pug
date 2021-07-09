@@ -1,69 +1,84 @@
-doctype html
 head
   title Login
   link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
-// Header goes here
+
 .login
-  form
-    label.label(for='username') Username
+  form(autocomplete='off')
+    label.label(for='username') Email
     br
-    input#username.box(type='text')
+    input#email.box(type='text' title="4 characters +, no spaces")
+    br
     label.rec(for='username') 4 characters +, no spaces
+    br
     br
     br
     label.label(for='password') Password
     br
-    input#password.box(type='password')
-    label.rec(for='username') 6 characters +, no spaces or punctuation except @ ! _
+    input#password.box(type='password' title="6 characters +, no spaces or punctuation except @ ! _")  
+    br
+    label.rec(for='username') 6 characters +, no spaces or punctuation except ~ ! _
+    br
     br
     label.check-desc
       | Remember me? 
       input#check(type='checkbox' style='transform: scale(1.25); padding: 2px;')
   center
     button.submit(onclick="login_register()") Submit
+
+script.
+  document.querySelector('#email').addEventListener('keypress', (e) => {if(e.key === 'Enter'){document.getElementById('password').focus();}});
+  document.querySelector('#password').addEventListener('keypress', (e) => {if(e.key === 'Enter'){login_register();}});
+
 style.
   *{padding:0%; margin: 0%;}
-  .login{
-  margin-top: 25px;
-  width: 70%;
-  margin: auto;
-  padding: 25px;
-  border-radius: 25px;
-  background-color: #d4d4d4;
-  box-shadow: 0 0 30px #d4d4d4
+  
+
+  #toggle {
+    border-top-left-radius : 0px;
+    border-bottom-left-radius : 0px;
+    border-left: none;
+    width: auto;
   }
-  form{
-  font-family: 'Product Sans';
+
+  .login {
+    margin: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-align: center;
   }
-  .box{
-  width: 70%;
-  border: none;
-  border-bottom: 0.5px grey solid;
-  font-size: 24px;
-  border-radius: 6px;
-  padding: 5px;
-  padding-left: 5px;
+  form {
+    font-family: 'Product Sans';
   }
-  .box:focus{
-  outline: none;
+  .box {
+    width: 350px;
+    border: 2px grey solid;
+    font-size: 24px;
+    border-radius: 6px;
+    padding: 5px;
+    /*background: linear-gradient(to right, rgba(255, 144, 159, 0.2), rgba(255, 255, 42, 0.2));*/
+    transition-duration: 0.2;
+    box-shadow: 0 4px 8px 0 #dddddd, 0 6px 20px 0 #ffffff;
   }
-  .rec{
-  color: grey;
-  font-size: 16px;
-  margin-left: 5px;
+  .box:focus {
+    outline: none;
+    box-shadow: 0 4px 8px 0 #aaaaaa, 0 6px 20px 0 #ffffff;
   }
-  .submit{
-  font-family: 'Product Sans';
-  font-size: 25px;
-  margin-top: 25px;
-  width: 30%;
-  padding: 15px;
-  background-color: rgb(110, 110, 110);
-  border: none;
-  border-radius: 15px;
-  color: #fff;
-  box-shadow: 0 0 30px rgb(110, 110, 110);
+  .rec {
+    color: grey;
+    font-size: 16px;
+    margin-left: 5px;
   }
-  .submit:focus{
-  outline: none;
+  .submit {
+    font-family: 'Product Sans';
+    font-size: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
+  }
+  .submit:focus {
+    outline: none;
   }

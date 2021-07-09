@@ -1,11 +1,12 @@
 include includes/header.pug
-
+head
+  link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
 p.login_title Login.
 style.
   .login_title{
-  font-size: 108px;
-  font-family: 'Product Sans';
-  margin-left: 45px;
+    font-size: 108px;
+    font-family: 'Product Sans';
+    margin-left: 45px;
   }
   
 include includes/login-form.pug
@@ -16,23 +17,42 @@ center
   a(href='/register')
     button.register Create a new account
 style.
-  .or{
-  font-family: 'Product Sans';
-  font-size: 26px;
-  margin-bottom: 20px;
+  .or {
+    font-family: 'Product Sans';
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
   }
   .register{
-  font-family: 'Product Sans';
-  font-size: 25px;
-  width: 21.5%;
-  background-color: rgb(110, 110, 110);
-  padding: 15px;
-  border: none;
-  border-radius: 15px;
-  color: #fff;
-  box-shadow: 0 0 45px rgb(110, 110, 110);
+    font-family: 'Product Sans';
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
   }
+
 script.
-  function login_register(){
-    alert(document.getElementById('username').value + ', ' + document.getElementById('password').value);
+  async function login_register(){
+    //ADD ENCRYPTION
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const checkbox = document.getElementById('check').checked;
+
+
+    let payload = {
+      email: "null",
+      password: "null"
+    }
+
+    payload.email = email;
+    payload.password = password;
+
+    let response = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json',},
+      body: JSON.stringify(payload)
+    });
+    let text = await response.text();
+    console.log(text);
   }

@@ -1,0 +1,64 @@
+nav
+    p#title settings
+    ul
+        a(href="#account")
+            li Account
+        a(href='#themes')
+            li Themes
+        a(href='#more')
+            li More
+        a(href="#important")
+            li Important
+a#home(href="/") home
+style.
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow;}
+    nav {
+        width: 400px;
+        height: 530px;
+        margin: 20px 0px 0px 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 20px 0px 0px 0px;
+        float: left;
+    }
+    li {
+        list-style: none;
+        margin: 0px 0px 0px 20px;
+        padding: 10px 125 10px 5px;
+        width: 125px
+    }
+    li:hover {
+        background: var(--YELLOWY);
+    }
+    a  {
+        text-decoration: none;
+        color: black
+    }
+    #title {
+        font-size: 70px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+    #home {
+        font-size: 30px;
+        text-align: center;
+        width: 410px;
+        margin: 15px 0px 0px 25px;
+        padding: 10px;
+        background: white;
+        border-radius: 20px;
+        float: left;
+    }
+    #home:hover {
+        background: var(--YELLOWY);
+    }
+script.
+    function two() {
+        document.getElementById("content").innerHTML = "<br><br>2";
+    }
+    function three() {
+        document.getElementById("content").innerText = "3";
+    }
+    function four() {
+        document.getElementById("content").innerText = "4";
+    }
