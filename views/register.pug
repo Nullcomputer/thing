@@ -35,11 +35,11 @@ script.
     payload.email = email;
     payload.password = password;
 
-    let response = await fetch('/api/login', {
+    let response = await fetch('/api/register', {
       method: 'POST',
       headers: {'Content-Type': 'application/json',},
       body: JSON.stringify(payload)
     });
-    let text = await response.text();
+    let text = await response.json();
     console.log(text);
   }
