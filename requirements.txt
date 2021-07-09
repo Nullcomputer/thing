@@ -1,6 +1,6 @@
 express
 pug
 mysql
-cookies
+cookie
 https
 js-sha256

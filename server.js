@@ -2,7 +2,7 @@ const express = require('express');
 const server = express();
 const PORT = 3000;
 
-const Cookies = require('cookies');
+const cookie = require('js-cookie');
 const sha256 = require('js-sha256');
 
 const pug = require("pug");
@@ -58,7 +58,7 @@ server.get('/settings', (req, res) => {
 const r = '/api';
 
 // login
-server.post(r + '/login', (req, res) => {
+server.get(r + '/login', (req, res) => {
     const obj = req.body;
 
     const email = obj.email;
@@ -81,6 +81,8 @@ server.post(r + '/register', (req, res) => {
     // <sql>
 
     // </sql>
+
+
 });
 
 
