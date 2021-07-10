@@ -2,55 +2,35 @@ include includes/header.pug
 head
     title shopping
 .grid-container
+    .tile#sponge-wrap(onclick="document.getElementById('#sponge-popup').style.visibility = 'visible'")
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+        p.title Sponge
+        p.date 06/07/2021
+        p.author S Garrett
 
-    .tile#sponge-wrap
-        a#sponge(href="/shopping/sponge")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title Sponge
-            p.date 06/07/2021
-            p.author S Garrett
+    .tile#treakle-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+        p.title Treakle
+        p.date 06/07/2021
+        p.author S Garrett
+        
+    .tile#concave-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+        p.title Concave
+        p.date 06/07/2021
+        p.author S Garrett
 
-    .tile#test-wrap
-        a#sponge(href="/shopping/test")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title TEST
-            p.date ??/??/??
-            p.author John Doe
+.popup#sponge-popup
+    #close-sponge
+        button.button close
 
-    .tile#test-wrap
-        a#sponge(href="/shopping/test")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title TEST
-            p.date ??/??/??
-            p.author John Doe
+.popup#treakle-popup
+    #close-treakle
+        button.button close
 
-    .tile#test-wrap
-        a#sponge(href="/shopping/test")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title TEST
-            p.date ??/??/??
-            p.author John Doe
-
-    .tile#test-wrap
-        a#sponge(href="/shopping/test")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title TEST
-            p.date ??/??/??
-            p.author John Doe
-
-    .tile#test-wrap
-        a#sponge(href="/shopping/test")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title TEST
-            p.date ??/??/??
-            p.author John Doe
-
-    .tile#test-wrap
-        a#sponge(href="/shopping/test")
-            img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-            p.title TEST
-            p.date ??/??/??
-            p.author John Doe
+.popup#concave-popup
+    #close-concave
+        button.button close
 
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
@@ -91,3 +71,46 @@ style.
     .date, .author {
         font-size: 15px;
     }
+
+    .popup {
+        position: absolute;
+        top: 5%;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        background: var(--BLUEY);
+        visibility: hidden;
+        -webkit-box-shadow: -11px 11px 100px 40px var(--BLUEY);
+        -moz-box-shadow:    -11px 11px 100px 40px var(--BLUEY);
+        box-shadow:         -11px 11px 100px 40px var(--BLUEY);
+    }
+    .popup button {
+        background: none;
+        border: none;
+        float: right;
+        padding: 10px 15px 0px 0px;
+        margin: 0;
+    }
+
+script.
+    function popups(wrap, id, show) {
+        document.querySelector(wrap).addEventListener('click', () => {
+            let popup = document.getElementById(id);
+            if (show == "open") {
+                show = 'visible';
+            } else {
+                show = 'hidden';
+                window.open("/shopping", "_top");
+            }
+            popup.style.visibility = show;
+        });
+    }
+    
+    popups('#sponge-wrap', 'sponge-popup', 'open');
+    popups('#close-sponge', 'sponge-popup', 'close');
+
+    popups('#treakle-wrap', 'treakle-popup', 'open');
+    popups('#close-treakle', 'treakle-popup', 'close');
+
+    popups('#concave-wrap', 'concave-popup', 'open');
+    popups('#close-concave', 'concave-popup', 'close');
