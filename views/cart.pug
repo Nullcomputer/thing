@@ -1,3 +1,107 @@
 include includes/header.pug
 head
-    title cart
+    title cake. - cart
+p#title cart
+#heading
+    p#cart-heading Your Cart
+
+#tile-construct
+    .tile#sponge-tile
+        img.image(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png" alt="Image SPONGE")
+        p.title Sponge
+        p.desc A light sponge to sponge up your day!
+        #remove-sponge
+            button.remove#remove-sponge-button(onclick="require()") X
+
+    .tile#treacle-tile
+        img.image(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png" alt="Image TREACLE")
+        p.title Treacle
+        p.desc Here is a descriptive text cause yeah
+        #remove-treacle
+            button.remove#remove-treacle-button X
+
+    .tile#concave-tile
+        img.image(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png" alt="Image CONCAVE")
+        p.title Concave
+        p.desc Here is a descriptive text cause yeah
+        #remove-concave
+            button.remove#remove-concave-button X
+
+style.
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY))}
+    #title {
+        margin: 0px 0px 0px 10px;
+        font-size: 80px;
+        font-weight: bolder;
+    }
+    #cart-heading {
+        font-size: 30px;
+        margin: 2% 0;
+    }
+    #heading {
+        display: flex;
+        align-items: flex-start;
+        background: var(--YELLOWY);
+        width: 85%;
+        margin: 20px auto 0px auto;
+        padding-left: 5%;
+    }
+    #tile-construct {
+        background: var(--YELLOWY);
+        width: 90%;
+        margin: 0px auto 20px auto;
+    }
+    .tile {
+        height: 100px;
+        padding: 35px;
+        border: 1px solid black;
+        margin: 0px 20px 20px 20px;
+        display: grid;
+        grid: column;
+    }
+    .title {
+        font-size: 20px;
+        position: absolute;
+        margin-top: 40px;
+        margin-left: 200px;
+    }
+    .image {
+        height: 100px;
+        width: 180px;
+    }
+    .desc {
+        width: 800px;
+        margin-top: -60px;
+        margin-left: 400px;
+    }
+    .remove {
+        background: salmon;
+        width: 30px;
+        height: 35px;
+        border: none;
+        margin-top: -70px;
+        margin-left: 1000px;
+    }
+
+    #sponge-tile {
+
+    }
+    #treacle-tile {
+
+    }
+    #concave-tile {
+
+    }
+script(src="shopping.pug")
+script.
+    function close(remove, tile) {
+        document.querySelector(remove).addEventListener('click', () => {
+            let popup = document.getElementById(tile);
+            let show = 'none';
+            popup.style.display = show;
+        });
+    }
+
+    close('#remove-sponge', 'sponge-tile');
+    close('#remove-treacle', 'treacle-tile');
+    close('#remove-concave', 'concave-tile');

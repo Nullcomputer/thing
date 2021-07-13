@@ -17,6 +17,8 @@ server.use(express.json()); // JSON
 
 var con = sql.createConnection({
     host: 'localhost',
+    port: 3000,
+    path: 'http://localhost:3000/',
     user: 'root',
     password: '',
     database: 'mysql'
@@ -40,11 +42,6 @@ server.get('/events', (req, res) => {
     res.render('construction.pug');         // CLOSED
 });
 
-// cake-type
-server.get('/cake-type', (req, res) => {
-    res.render('construction.pug');         // CLOSED
-});
-
 // shopping
 server.get('/shopping', (req, res) => {
     res.render('shopping.pug');         // OPEN
@@ -62,12 +59,17 @@ server.get('/register', (req, res) => {
 
 // cart
 server.get('/cart', (req, res) => {
-    res.render('construction.pug');         // CLOSED
+    res.render('cart.pug');         // CLOSED
 });
 
 // settings
 server.get('/settings', (req, res) => {
     res.render('settings.pug');         // OPEN
+});
+
+// answers
+server.get('/answers', (req, res) => {
+    res.render('answers.pug');
 });
 
 

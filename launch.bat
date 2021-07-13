@@ -1,5 +1,6 @@
 @echo off
 title launch cake. server
+powershell -Command "& {npm install js-cookie}"
 powershell -Command "& {npm install express}"
 powershell -Command "& {npm install pug}"
 powershell -Command "& {npm install mysql}"

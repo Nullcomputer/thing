@@ -2,15 +2,16 @@ include includes/header.pug
 head
     title shopping
 .grid-container
-    .tile#sponge-wrap(onclick="document.getElementById('#sponge-popup').style.visibility = 'visible'")
+    .tile#sponge-wrap(onclick='setCookie()')
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
         p.title Sponge
         p.date 06/07/2021
         p.author S Garrett
+        p#txtName(value="green") purple
 
-    .tile#treakle-wrap
+    .tile#treacle-wrap(onclick="getCookie()")
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
-        p.title Treakle
+        p.title Treacle
         p.date 06/07/2021
         p.author S Garrett
         
@@ -24,8 +25,8 @@ head
     #close-sponge
         button.button close
 
-.popup#treakle-popup
-    #close-treakle
+.popup#treacle-popup
+    #close-treacle
         button.button close
 
 .popup#concave-popup
@@ -109,8 +110,8 @@ script.
     popups('#sponge-wrap', 'sponge-popup', 'open');
     popups('#close-sponge', 'sponge-popup', 'close');
 
-    popups('#treakle-wrap', 'treakle-popup', 'open');
-    popups('#close-treakle', 'treakle-popup', 'close');
+    popups('#treacle-wrap', 'treacle-popup', 'open');
+    popups('#close-treacle', 'treacle-popup', 'close');
 
     popups('#concave-wrap', 'concave-popup', 'open');
     popups('#close-concave', 'concave-popup', 'close');

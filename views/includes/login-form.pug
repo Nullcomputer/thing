@@ -79,7 +79,13 @@ style.
   .submit:focus {
     outline: none;
   }
-  
+  #password {
+    width: 330px;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
 script.
   document.querySelector('#email').addEventListener('keypress', function (e) {if (e.key === 'Enter') {document.getElementById('password').focus();}});  // Move along in process on enter keypress
   document.querySelector('#password').addEventListener('keypress', function (e) {if (e.key === 'Enter') {login_register();}});                          // Move along in process on enter keypress
