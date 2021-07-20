@@ -2,36 +2,51 @@ include includes/header.pug
 head
     title shopping
 .grid-container
-    .tile#sponge-wrap(onclick='setCookie()')
-        img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+    .tile#sponge-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
         p.title Sponge
         p.date 06/07/2021
         p.author S Garrett
-        p#txtName(value="green") purple
 
-    .tile#treacle-wrap(onclick="getCookie()")
-        img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+    .tile#treacle-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png")
         p.title Treacle
         p.date 06/07/2021
         p.author S Garrett
         
     .tile#concave-wrap
-        img(src="https://cdn.discordapp.com/attachments/858014139246837810/862063744154206218/shutterstock118860388.png")
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png")
         p.title Concave
         p.date 06/07/2021
         p.author S Garrett
+        
+.popup-container
+    .popup#sponge-popup
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
+        p.title Sponge
+        p.desc See the sponge is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.
+        p.date 06/07/2021
+        p.author S Garrett
+        #close-sponge
+            button.button#close-popup X
 
-.popup#sponge-popup
-    #close-sponge
-        button.button close
+    .popup#treacle-popup
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png")
+        p.title Treacle
+        p.desc See the treacle is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.
+        p.date 06/07/2021
+        p.author S Garrett
+        #close-treacle
+            button.button#close-popup X
 
-.popup#treacle-popup
-    #close-treacle
-        button.button close
-
-.popup#concave-popup
-    #close-concave
-        button.button close
+    .popup#concave-popup
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png")
+        p.title Concave
+        p.desc See the concave is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.
+        p.date 06/07/2021
+        p.author S Garrett
+        #close-concave
+            button.button#close-popup X
 
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
@@ -50,7 +65,6 @@ style.
     .grid-container a:hover {
         color: var(--BLUEY);
     }
-
     .tile {
         flex: 0 0 150px;
         border: 1px var(--GREENY) solid;
@@ -61,6 +75,7 @@ style.
         padding: 2px;
         border-bottom: 1px var(--BLUEY) solid;
         width: 100%;
+        height: 100px;
     }
     .tile:hover {
         box-shadow: 1px 2px 2px 1px var(--GREENY), 1px 2px 2px 1px var(--BLUEY);
@@ -79,18 +94,53 @@ style.
         bottom: 5%;
         left: 5%;
         right: 5%;
-        background: var(--BLUEY);
+        background: white;
         visibility: hidden;
+        column-count: 2;
         -webkit-box-shadow: -11px 11px 100px 40px var(--BLUEY);
         -moz-box-shadow:    -11px 11px 100px 40px var(--BLUEY);
         box-shadow:         -11px 11px 100px 40px var(--BLUEY);
     }
-    .popup button {
+    .popup img, .popup .title, .popup .desc, .popup .date, .popup .author{
+        margin: 0px 0px 0px 20px;
+        padding-bottom: 2px;
+    }
+    .popup .date, .popup .author {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0px 20px 20px 0px;
+    }
+    .popup img {
+        margin-top: 20px;
+        width: 100%;
+        height: 75%;
+    }
+    .popup .title {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        font-size: 50px;
+        width: 100%;
+    }
+    .popup .desc {
+        font-size: 25px;
+        width: 90%;
+        padding: 20px 0px 0px 0px;
+    }
+    .popup .date {
+        margin-bottom: 40px;
+    }
+    .popup #close-popup {
+        position: absolute;
+        top: 0;
+        right: 0;
         background: none;
         border: none;
         float: right;
         padding: 10px 15px 0px 0px;
         margin: 0;
+        color: red;
     }
 
 script.

@@ -4,14 +4,13 @@ head
 p#title cart
 #heading
     p#cart-heading Your Cart
-
 #tile-construct
     .tile#sponge-tile
         img.image(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png" alt="Image SPONGE")
         p.title Sponge
         p.desc A light sponge to sponge up your day!
         #remove-sponge
-            button.remove#remove-sponge-button(onclick="require()") X
+            button.remove#remove-sponge-button X
 
     .tile#treacle-tile
         img.image(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png" alt="Image TREACLE")
@@ -54,7 +53,6 @@ style.
     .tile {
         height: 100px;
         padding: 35px;
-        border: 1px solid black;
         margin: 0px 20px 20px 20px;
         display: grid;
         grid: column;
@@ -82,17 +80,6 @@ style.
         margin-top: -70px;
         margin-left: 1000px;
     }
-
-    #sponge-tile {
-
-    }
-    #treacle-tile {
-
-    }
-    #concave-tile {
-
-    }
-script(src="shopping.pug")
 script.
     function close(remove, tile) {
         document.querySelector(remove).addEventListener('click', () => {
@@ -101,7 +88,7 @@ script.
             popup.style.display = show;
         });
     }
-
     close('#remove-sponge', 'sponge-tile');
     close('#remove-treacle', 'treacle-tile');
     close('#remove-concave', 'concave-tile');
+    
