@@ -1,10 +1,13 @@
 include includes/header.pug
 head
     title cake.
+    link(rel="preconnect" href="https://fonts.googleapis.com/%22%3E")
+    link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" )
 #home
     #welcome
         p.title cake.
-        p.slogan we are cake.
+        p.slogan welcome to cake.
     a.btn#down(href='#down')
         svg.bi.bi-arrow-down-short(xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' viewbox='0 0 16 16')
             path(fill-rule='evenodd' d='M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z')
@@ -14,28 +17,29 @@ head
         img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
         .subtitle#about 
             p.right welcome to this about us page
-        p.content cake. is a company dedicated to making your cake... cakey. (but to the right)
+        p.content cake. is a company dedicated to making your cake... cakey. we aim to make the cakiest cake that has ever caked the land.
     br
     .tile-left
         img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
         .subtitle
-            p.left welcome to this about us page
-        p.content cake. is a company dedicated to making your cake... cakey. (but to the left)
+            p.left navigation bar
+        p.content the navigation bar at the top of the page will enable you to explore the site. go have
     br
     .tile-right
         img(src='https://cdn.discordapp.com/attachments/855747150461534209/856952926136565761/unknown.png' alt='cake. favicon tile')
-        .subtitle
-            p.right welcome to this about us page
-        p.content cake. is a company dedicated to making your cake... cakey. (but to the right and DIFFERNT)
+        .subtitle#about
+            p.right shopping page
+        p.content the shopping page will allow you to add cakes to your basket.
     
         
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY))}
     html {
-        scroll-behavior: smooth;    
+        scroll-behavior: smooth;
+        font-family: 'Otomanopee One', sans-serif;
+        background: linear-gradient(90deg, rgba(230,31,31,1) 0%, rgba(255,175,0,1) 17%, rgba(236,255,0,1) 33%, rgba(61,226,27,1) 50%, rgba(0,252,254,1) 67%, rgba(168,66,195,1) 83%);   
     }
     p {
-        font-family: 'Product Sans';
     }
     #welcome {
         padding: 185px 100px;
@@ -43,20 +47,17 @@ style.
     #home {
         margin: 10px 20px;
         padding: 20px 0px;
-        background: white;
+        background: ;
         text-align: center;
         color: #221E22;
     }
-
     .title {
         font-size: 100px;
     }
-    
     .subtitle {
         font-size: 50px;
         padding: 0px 0px 20px 20px;
     }
-
     .left {
         text-align: left;
     }

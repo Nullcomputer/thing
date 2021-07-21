@@ -39,7 +39,7 @@ server.get('/', (req, res) => {
 
 // events
 server.get('/events', (req, res) => {
-    res.render('construction.pug');         // CLOSED
+    res.render('events.pug');         // CLOSED
 });
 
 // shopping
@@ -78,6 +78,8 @@ const r = '/api';
 
 // login
 server.post(r + '/login', (req, res) => {
+    console.log("ENTERING /login\n")
+
     const obj = req.body;
 
     const email = obj.email;
@@ -87,19 +89,31 @@ server.post(r + '/login', (req, res) => {
     console.log(password);
     console.log();
 
-    res.send('success');
+    let exists = false
+    const sCheck = `SELECT email FROM user_logins WHERE email = "${email}"`;
+
+    con.query(sCheck, (err, result) => {
+        if (!result === null) {
+            exists = true;
+        }
+    });
+    res.send(exists);
+    console.log("EXITING /login\n");
 });
 
 // register
 server.post(r + '/register', (req, res) => {
+
+    console.log("ENTERING /register\n");
+    
     const obj = req.body;
 
     const email = obj.email;
     const password = sha256(obj.password);
 
+    res.send("Register Started...\n");
     // <sql>
-    const payload = `VALUES ("${email}", "${password}")`;
-    
+
     const json = {
         success: "",
         email: "",
@@ -109,24 +123,15 @@ server.post(r + '/register', (req, res) => {
     
     let exists = false
     const sCheck = `SELECT email FROM user_logins WHERE email = "${email}"`;
+
     con.query(sCheck, (err, result) => {
-        if(result.length === 0){
-            exists = false;
-
-            if (exists === false) {
-                const sql = 'INSERT INTO user_logins (email, password)' + payload;
-                con.query(sql, (err, result) => {
-                    if(err){ 
-                        json.success = 'false';
-                        res.json(json);
-                    } else {
-                        json.success = 'true';
-                        res.json(json);
-                    }
-                   
-                });
-            }
-
+        if (result === null) {
+            const sql = `INSERT INTO user_logins (email, password) VALUES ("${email}", "${password}")`;
+            console.log(sql);
+            con.query(sql, (err, result) => {
+                json.success = err;
+                res.json(json);
+            });
         } else {
             exists = true;
         }
@@ -139,9 +144,11 @@ server.post(r + '/register', (req, res) => {
         res.json(json);
 
     });
+    res.send("succesful register\n");
+    con.close();
 
     // </sql>
-    
+    console.log("Touchdown!\n");
 });
 
 

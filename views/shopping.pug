@@ -1,6 +1,7 @@
 include includes/header.pug
 head
     title shopping
+    
 .grid-container
     .tile#sponge-wrap
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
@@ -13,40 +14,81 @@ head
         p.title Treacle
         p.date 06/07/2021
         p.author S Garrett
+
+    .tile#chocolate-wrap
+        img(src="https://www.greenandblacks.co.uk/media/wysiwyg/Sticky-Toffee-MOB.png")
+        p.title Chocolate Pudding
+        p.date 06/07/2021
+        p.author M Keenan
         
     .tile#concave-wrap
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png")
         p.title Concave
         p.date 06/07/2021
         p.author S Garrett
+
+    
         
 .popup-container
     .popup#sponge-popup
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
         p.title Sponge
-        p.desc See the sponge is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.
+        p.desc INGREDIENTS: Wheat Flour [Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin], Sugar, Pasteurised Egg, Vanilla Flavoured Buttercream (13%) [Sugar, Butter (Milk), Glucose Syrup, Water, Humectant (Glycerol), Cornflour, Maize Starch, Salt, Dried Egg White, Flavouring], Raspberry Jam (13%) [Raspberry Purée, Glucose-Fructose Syrup, Sugar, Gelling Agent (Pectin), Acidity Regulators (Citric Acid, Sodium Citrate), Flavouring], Butter (Milk), Rapeseed Oil, Pasteurised Egg White, Humectant (Glycerol), Greek Style Yogurt (Milk), Raising Agents (Disodium Diphosphate, Potassium Carbonate), Cornflour, Stabiliser (Xanthan Gum), Palm Oil, Flavouring.
         p.date 06/07/2021
         p.author S Garrett
         #close-sponge
             button.button#close-popup X
+        #add-sponge 
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-sponge
+            p#cart-popup-text added to cart
+            #close-added-sponge
+                button.button#close-popup X
 
     .popup#treacle-popup
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png")
         p.title Treacle
-        p.desc See the treacle is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.
+        p.desc INGREDIENTS: Syrup Sauce (35%) [Invert Sugar Syrup, Water, Cornflour], Wheat Flour [Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin], Pasteurised Egg, Sugar, Margarine [Palm Oil, Rapeseed Oil, Water], Humectant (Glycerol), Raising Agents (Calcium Phosphate, Sodium Bicarbonate, Potassium Carbonate), Flavouring, Preservative (Potassium Sorbate), Salt.
         p.date 06/07/2021
         p.author S Garrett
         #close-treacle
             button.button#close-popup X
+        #add-treacle 
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-treacle
+            p#cart-popup-text added to cart
+            #close-added-treacle
+                button.button#close-added-popup X
 
     .popup#concave-popup
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png")
         p.title Concave
-        p.desc See the concave is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.
+        p.desc See the concave is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.    INGREDIENTS: Endless Void, Geometry, Curves, Construction (Binary, Angle Calculation)
         p.date 06/07/2021
         p.author S Garrett
         #close-concave
             button.button#close-popup X
+        #add-concave 
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-concave
+            p#cart-popup-text added to cart
+            #close-added-concave
+                button.button#close-added-popup X
+
+    .popup#chocolate-popup
+        img(src="https://www.greenandblacks.co.uk/media/wysiwyg/Sticky-Toffee-MOB.png")
+        p.title Chocolate Pudding
+        p.desc INGREDIENTS: Dark Cooking Chocolate, Dates, Butter, Light Brown Sugar, Egg, Wheat Flour, Golden Syrup, Unsalted Butter, Whipping Cream, Vanilla Extract.
+        p.date 06/07/2021
+        p.author M Keenan
+        #close-chocolate
+            button.button#close-popup X
+        #add-chocolate
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-chocolate
+            p#cart-popup-text added to cart
+            #close-added-chocolate
+                button.button#close-added-popup X
 
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
@@ -101,6 +143,20 @@ style.
         -moz-box-shadow:    -11px 11px 100px 40px var(--BLUEY);
         box-shadow:         -11px 11px 100px 40px var(--BLUEY);
     }
+    .cart-popup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 75px;
+        background: black;
+        visibility: hidden;
+        text-align: center;
+    }
+    #cart-popup-text {
+        color: var(--BLUEY);
+        margin-top: 26px;
+    }
     .popup img, .popup .title, .popup .desc, .popup .date, .popup .author{
         margin: 0px 0px 0px 20px;
         padding-bottom: 2px;
@@ -131,7 +187,7 @@ style.
     .popup .date {
         margin-bottom: 40px;
     }
-    .popup #close-popup {
+    .popup #close-popup, .popup #close-added-popup{
         position: absolute;
         top: 0;
         right: 0;
@@ -142,26 +198,58 @@ style.
         margin: 0;
         color: red;
     }
+    .popup #close-added-popup {
+        font-size: 20px;
+    }
 
 script.
-    function popups(wrap, id, show) {
+    function popups(wrap, id, condition, cart, query) {
         document.querySelector(wrap).addEventListener('click', () => {
             let popup = document.getElementById(id);
-            if (show == "open") {
-                show = 'visible';
-            } else {
-                show = 'hidden';
-                window.open("/shopping", "_top");
+            if(condition == "open" || condition == "close") {
+                if (condition == "open") {
+                    condition = 'visible';
+                } else {
+                    condition = 'hidden';
+                    window.open("/shopping", "_top");
+                }
+                popup.style.visibility = condition;
+            } else if (cart.includes("cart")) {
+                let cake = condition.replace("cart:", "")
+                console.log("added to cart: ".concat(cake));
+
+                var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
+                var params = new URLSearchParams(cartVars)
+                params.append("cake", cake);
+                document.cookie = "cart=" + params.toString();
+                
             }
-            popup.style.visibility = show;
+        });
+    }
+
+    function cartPopups(wrap, id) {
+        document.querySelector(wrap).addEventListener('click', () => {
+            let popup = document.getElementById(id);
+            popup.style.visibility = 'hidden';
         });
     }
     
     popups('#sponge-wrap', 'sponge-popup', 'open');
     popups('#close-sponge', 'sponge-popup', 'close');
+    popups('#add-sponge', 'added-sponge', 'open');
+    cartPopups('#close-added-sponge', 'added-sponge');
 
     popups('#treacle-wrap', 'treacle-popup', 'open');
     popups('#close-treacle', 'treacle-popup', 'close');
+    popups('#add-treacle', 'added-treacle', 'open');
+    cartPopups('#close-added-treacle', 'added-treacle');
 
     popups('#concave-wrap', 'concave-popup', 'open');
     popups('#close-concave', 'concave-popup', 'close');
+    popups('#add-concave', 'added-concave', 'open');
+    cartPopups('#close-added-concave', 'added-concave');
+
+    popups('#chocolate-wrap', 'chocolate-popup', 'open');
+    popups('#close-chocolate', 'chocolate-popup', 'close');
+    popups('#add-chocolate', 'added-chocolate', 'open');
+    cartPopups('#close-added-chocolate', 'added-chocolate');

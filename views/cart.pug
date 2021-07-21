@@ -20,9 +20,9 @@ p#title cart
             button.remove#remove-treacle-button X
 
     .tile#concave-tile
-        img.image(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png" alt="Image CONCAVE")
+        img.image(src="https://media.discordapp.net/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png?width=768&height=390" alt="Image CONCAVE")
         p.title Concave
-        p.desc Here is a descriptive text cause yeah
+        p.desc Here is a descriptive text cause yeah concave is basically a meme :/
         #remove-concave
             button.remove#remove-concave-button X
 
@@ -80,15 +80,40 @@ style.
         margin-top: -70px;
         margin-left: 1000px;
     }
+
 script.
-    function close(remove, tile) {
+    var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
+    var params = new URLSearchParams(cartVars)
+    console.log(cartVars)
+    cartVars = cartVars.replace(/cake=/g, "")
+    cartVars = cartVars.split("&")
+    alert(cartVars)
+
+    function close(remove, tile, type, cart) {
+
+        function cookieRemove(type) {
+            console.log("removed: " + type)
+            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
+            var params = new URLSearchParams(cartVars)
+            document.cookie = document.cookie.replaceAll(type, "")
+
+        }
+
+        function updateCart() {
+            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
+            if (!cartVars.includes(type)){
+                let popup = document.getElementById(tile);
+                let show = 'none';
+                popup.style.display = show;
+            }
+        }
+
         document.querySelector(remove).addEventListener('click', () => {
-            let popup = document.getElementById(tile);
-            let show = 'none';
-            popup.style.display = show;
+            cookieRemove(type)
+            updateCart()
         });
     }
-    close('#remove-sponge', 'sponge-tile');
-    close('#remove-treacle', 'treacle-tile');
-    close('#remove-concave', 'concave-tile');
+    close('#remove-sponge', 'sponge-tile', 'sponge', cartVars);
+    close('#remove-treacle', 'treacle-tile', 'treacle', cartVars);
+    close('#remove-concave', 'concave-tile', 'concave', cartVars);
     

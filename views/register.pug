@@ -1,11 +1,17 @@
 include includes/header.pug
 head
   link(rel='stylesheet' href='https://egkoppel.github.io/product-sans/google-fonts.css')
+  link(rel="preconnect" href="https://fonts.googleapis.com/%22%3E")
+  link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" )
 #register
   p.register_title Register.
   include includes/login-form.pug
 
 style.
+  html {
+    font-family: 'Otomanopee One', sans-serif;
+  }
   body {
     background: white;
   }
@@ -13,32 +19,30 @@ style.
     padding: 10px;
   }
   .register_title{
-    font-size: 108px;
-    font-family: 'Product Sans';
+    font-size: 110px;
     margin-left: 45px;
   }
 
 script.
-  async function login_register(){
+  async function login_register() {
     //ADD ENCRYPTION
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    const checkbox = document.getElementById('check').checked;
-
-
+    const checkbox = document.getElementById('check').checked;    
+    
+    
+    
     let payload = {
-      email: "null",
-      password: "null"
+      email : email,
+      password : password
     }
-
-    payload.email = email;
-    payload.password = password;
 
     let response = await fetch('/api/login', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json',},
+      headers: {'Content-Type' : 'application/json',},
       body: JSON.stringify(payload)
     });
     let text = await response.text();
     console.log(text);
+    
   }

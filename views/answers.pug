@@ -1,6 +1,285 @@
 head
     title search results
 
-include includes/header.pug
 
-p#output welp
+include includes/header.pug
+    p#count Your search returned x results!
+    
+.grid-container
+    .tile#sponge-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
+        p.title Sponge
+        p.date 06/07/2021
+        p.author S Garrett
+
+    .tile#treacle-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png")
+        p.title Treacle
+        p.date 06/07/2021
+        p.author S Garrett
+
+    .tile#chocolate-wrap
+        img(src="https://www.greenandblacks.co.uk/media/wysiwyg/Sticky-Toffee-MOB.png")
+        p.title Chocolate Pudding
+        p.date 06/07/2021
+        p.author M Keenan
+        
+    .tile#concave-wrap
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png")
+        p.title Concave
+        p.date 06/07/2021
+        p.author S Garrett
+
+    
+        
+.popup-container
+    .popup#sponge-popup
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
+        p.title Sponge
+        p.desc INGREDIENTS: Wheat Flour [Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin], Sugar, Pasteurised Egg, Vanilla Flavoured Buttercream (13%) [Sugar, Butter (Milk), Glucose Syrup, Water, Humectant (Glycerol), Cornflour, Maize Starch, Salt, Dried Egg White, Flavouring], Raspberry Jam (13%) [Raspberry Purée, Glucose-Fructose Syrup, Sugar, Gelling Agent (Pectin), Acidity Regulators (Citric Acid, Sodium Citrate), Flavouring], Butter (Milk), Rapeseed Oil, Pasteurised Egg White, Humectant (Glycerol), Greek Style Yogurt (Milk), Raising Agents (Disodium Diphosphate, Potassium Carbonate), Cornflour, Stabiliser (Xanthan Gum), Palm Oil, Flavouring.
+        p.date 06/07/2021
+        p.author S Garrett
+        #close-sponge
+            button.button#close-popup X
+        #add-sponge 
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-sponge
+            p#cart-popup-text added to cart
+            #close-added-sponge
+                button.button#close-popup X
+
+    .popup#treacle-popup
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775371953831946/R.png")
+        p.title Treacle
+        p.desc INGREDIENTS: Syrup Sauce (35%) [Invert Sugar Syrup, Water, Cornflour], Wheat Flour [Wheat Flour, Calcium Carbonate, Iron, Niacin, Thiamin], Pasteurised Egg, Sugar, Margarine [Palm Oil, Rapeseed Oil, Water], Humectant (Glycerol), Raising Agents (Calcium Phosphate, Sodium Bicarbonate, Potassium Carbonate), Flavouring, Preservative (Potassium Sorbate), Salt.
+        p.date 06/07/2021
+        p.author S Garrett
+        #close-treacle
+            button.button#close-popup X
+        #add-treacle 
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-treacle
+            p#cart-popup-text added to cart
+            #close-added-treacle
+                button.button#close-added-popup X
+
+    .popup#concave-popup
+        img(src="https://cdn.discordapp.com/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png")
+        p.title Concave
+        p.desc See the concave is very sticky and spongey treat for your tastebuds. So much like the perpetual void and darkness only death can bring, the sticky soul of sugary sweetness drips through the topping. Wouldn't you love to eat the exestential and morbid yet spirit lifting sponge? Yes. Yes you would.    INGREDIENTS: Endless Void, Geometry, Curves, Construction (Binary, Angle Calculation)
+        p.date 06/07/2021
+        p.author S Garrett
+        #close-concave
+            button.button#close-popup X
+        #add-concave 
+            button.button#add-to-cart Add to cart
+        .cart-popup#added-concave
+            p#cart-popup-text added to cart
+            #close-added-concave
+                button.button#close-added-popup X
+
+    .popup#chocolate-popup
+        img(src="https://www.greenandblacks.co.uk/media/wysiwyg/Sticky-Toffee-MOB.png")
+        p.title Chocolate Pudding
+        p.desc INGREDIENTS: Dark Cooking Chocolate, Dates, Butter, Light Brown Sugar, Egg, Wheat Flour, Golden Syrup, Unsalted Butter, Whipping Cream, Vanilla Extract.
+        p.date 06/07/2021
+        p.author M Keenan
+        #close-chocolate
+            button.button#close-popup X
+        #add-chocolate
+            button.button#add-to-cart Add to cart
+        .popup#added-chocolate
+            p#cart-popup-text added to cart
+            #close-added-chocolate
+                button.button#close-added-popup X
+style.
+    *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
+
+    .grid-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 70%;
+        margin: 20px auto;
+    }
+    .grid-container a {
+        text-decoration: none;
+        color: black;
+    }
+    .grid-container a:hover {
+        color: var(--BLUEY);
+    }
+    .tile {
+        flex: 0 0 150px;
+        border: 1px var(--GREENY) solid;
+        margin: 10px;
+        padding: 10px 10px 10px 10px;
+    }
+    .tile img {
+        padding: 2px;
+        border-bottom: 1px var(--BLUEY) solid;
+        width: 100%;
+        height: 100px;
+    }
+    .tile:hover {
+        box-shadow: 1px 2px 2px 1px var(--GREENY), 1px 2px 2px 1px var(--BLUEY);
+    }
+    
+    .title {
+        font-size: 20px;
+    }
+    .date, .author {
+        font-size: 15px;
+    }
+
+    .popup {
+        position: absolute;
+        top: 5%;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
+        background: white;
+        visibility: hidden;
+        column-count: 2;
+        -webkit-box-shadow: -11px 11px 100px 40px var(--BLUEY);
+        -moz-box-shadow:    -11px 11px 100px 40px var(--BLUEY);
+        box-shadow:         -11px 11px 100px 40px var(--BLUEY);
+    }
+    .cart-popup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 75px;
+        background: black;
+        visibility: hidden;
+        text-align: center;
+    }
+    #cart-popup-text {
+        color: var(--BLUEY);
+        margin-top: 26px;
+    }
+    .popup img, .popup .title, .popup .desc, .popup .date, .popup .author{
+        margin: 0px 0px 0px 20px;
+        padding-bottom: 2px;
+    }
+    .popup .date, .popup .author {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0px 20px 20px 0px;
+    }
+    .popup img {
+        margin-top: 20px;
+        width: 100%;
+        height: 75%;
+    }
+    .popup .title {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        font-size: 50px;
+        width: 100%;
+    }
+    .popup .desc {
+        font-size: 25px;
+        width: 90%;
+        padding: 20px 0px 0px 0px;
+    }
+    .popup .date {
+        margin-bottom: 40px;
+    }
+    .popup #close-popup, .popup #close-added-popup{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: none;
+        border: none;
+        float: right;
+        padding: 10px 15px 0px 0px;
+        margin: 0;
+        color: red;
+    }
+    .popup #close-added-popup {
+        font-size: 20px;
+    }
+
+    #count {
+        font-size: 50px;
+    }
+
+script.
+    query = document.location.href.replace("http://localhost:3000/answers?search=", "")
+    query = query.replace("%20", " ")
+    query = query.toLowerCase()
+    let count = 0
+
+    function showResults(query, wrap, type) {
+        if(!type.includes(query)) {
+            document.getElementById(wrap).style.display = "none";
+        } else {
+            count += 1;
+        }
+
+    }
+
+    function popups(wrap, id, condition, cart, query) {
+        document.querySelector(wrap).addEventListener('click', () => {
+            let popup = document.getElementById(id);
+            if(condition == "open" || condition == "close") {
+                if (condition == "open") {
+                    condition = 'visible';
+                } else {
+                    condition = 'hidden';
+                    window.open("/answers?search=" + query, "_top");
+                }
+                popup.style.visibility = condition;
+            } else if (cart.includes("cart")) {
+                let cake = cart.replace("cart:", "")
+                console.log("added to cart: ".concat(cake));
+
+                var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
+                var params = new URLSearchParams(cartVars)
+                params.append("cake", cake);
+                document.cookie = "cart=" + params.toString();
+            }
+        });
+    }
+    function sendData(wrap, cart) {
+        let cake = cart.replace("cart:", "")
+            console.log("added to cart: ".concat(cake));
+
+            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
+            var params = new URLSearchParams(cartVars)
+            params.append("cake", cake);
+            document.cookie = "cart=" + params.toString();
+    }
+
+    showResults(query, "sponge-wrap", "sponge")
+    showResults(query, "treacle-wrap", "treacle")
+    showResults(query, "concave-wrap", "concave")
+    showResults(query, "chocolate-wrap", "chocolate pudding")
+    
+    //popups(wrap, id, condition, cart, query) 
+    
+    popups('#sponge-wrap', 'sponge-popup', 'open');
+    sendData('#add-treacle', 'cart:sponge');
+    popups('#close-sponge', 'sponge-popup', 'close', query);
+
+    popups('#treacle-wrap', 'treacle-popup', 'open');
+    sendData('#add-treacle', 'cart:treacle');
+    popups('#close-treacle', 'treacle-popup', 'close', query);
+
+    popups('#concave-wrap', 'concave-popup', 'open');
+    sendData('#add-treacle', 'cart:concave');
+    popups('#close-concave', 'concave-popup', 'close', query);
+
+    popups('#chocolate-wrap', 'chocolate-popup', 'open');
+    sendData('#add-treacle', 'cart:chocolate');
+    popups('#close-chocolate', 'chocolate-popup', 'close', query);
+
+    results = document.getElementById("count")
+    results.innerText = `Your search returned ${count} results!`
+
+
+    
