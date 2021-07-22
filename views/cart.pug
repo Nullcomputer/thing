@@ -84,10 +84,23 @@ style.
 script.
     var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
     var params = new URLSearchParams(cartVars)
-    console.log(cartVars)
     cartVars = cartVars.replace(/cake=/g, "")
     cartVars = cartVars.split("&")
-    alert(cartVars)
+
+    console.log("starting...");
+    console.log(cartVars);
+    const cartLen = cartVars.length;
+        
+    if(cartVars[0] != "") {
+        cartVars[0] = "";
+    }
+
+    let noDupe = [...new Set(cartVars)];
+    noDupe.shift()
+    console.log("Done");
+
+    console.log(noDupe)
+    alert(noDupe)
 
     function close(remove, tile, type, cart) {
 
@@ -96,7 +109,6 @@ script.
             var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
             var params = new URLSearchParams(cartVars)
             document.cookie = document.cookie.replaceAll(type, "")
-
         }
 
         function updateCart() {

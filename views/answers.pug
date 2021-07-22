@@ -186,6 +186,15 @@ style.
         width: 90%;
         padding: 20px 0px 0px 0px;
     }
+    #treacle-popup .desc {
+        font-size: 30px;
+    }
+    #sponge-popup .desc {
+        font-size: 20px;
+    }
+    .popup .date {
+        margin-bottom: 40px;
+    }
     .popup .date {
         margin-bottom: 40px;
     }
@@ -207,11 +216,11 @@ style.
     #count {
         font-size: 50px;
     }
-
 script.
     query = document.location.href.replace("http://localhost:3000/answers?search=", "")
     query = query.replace("%20", " ")
     query = query.toLowerCase()
+    console.log(query)
     let count = 0
 
     function showResults(query, wrap, type) {
@@ -231,7 +240,7 @@ script.
                     condition = 'visible';
                 } else {
                     condition = 'hidden';
-                    window.open("/answers?search=" + query, "_top");
+                    window.open("/answers?search=", "_top");
                 }
                 popup.style.visibility = condition;
             } else if (cart.includes("cart")) {
@@ -259,7 +268,6 @@ script.
     showResults(query, "treacle-wrap", "treacle")
     showResults(query, "concave-wrap", "concave")
     showResults(query, "chocolate-wrap", "chocolate pudding")
-    
     //popups(wrap, id, condition, cart, query) 
     
     popups('#sponge-wrap', 'sponge-popup', 'open');

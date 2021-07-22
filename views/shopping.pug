@@ -1,7 +1,14 @@
 include includes/header.pug
 head
     title shopping
-    
+    link(rel="preconnect" href="https://fonts.googleapis.com/%22%3E")
+    link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap")
+
+#titles
+    p.title Shopping
+    p.subtitle A place to add your prefered cake to your shopping cart.
+
 .grid-container
     .tile#sponge-wrap
         img(src="https://cdn.discordapp.com/attachments/858014139246837810/863773997028343858/1200px-Victoria_Sponge_Cake_250677289.png")
@@ -26,8 +33,6 @@ head
         p.title Concave
         p.date 06/07/2021
         p.author S Garrett
-
-    
         
 .popup-container
     .popup#sponge-popup
@@ -38,7 +43,7 @@ head
         p.author S Garrett
         #close-sponge
             button.button#close-popup X
-        #add-sponge 
+        .add#add-sponge 
             button.button#add-to-cart Add to cart
         .cart-popup#added-sponge
             p#cart-popup-text added to cart
@@ -53,7 +58,7 @@ head
         p.author S Garrett
         #close-treacle
             button.button#close-popup X
-        #add-treacle 
+        .add#add-treacle 
             button.button#add-to-cart Add to cart
         .cart-popup#added-treacle
             p#cart-popup-text added to cart
@@ -68,7 +73,7 @@ head
         p.author S Garrett
         #close-concave
             button.button#close-popup X
-        #add-concave 
+        .add#add-concave 
             button.button#add-to-cart Add to cart
         .cart-popup#added-concave
             p#cart-popup-text added to cart
@@ -83,7 +88,7 @@ head
         p.author M Keenan
         #close-chocolate
             button.button#close-popup X
-        #add-chocolate
+        .add#add-chocolate
             button.button#add-to-cart Add to cart
         .cart-popup#added-chocolate
             p#cart-popup-text added to cart
@@ -92,7 +97,16 @@ head
 
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
-
+    html {
+        font-family: 'Otomanopee One', sans-serif;
+    }
+    #titles .title{
+        font-size: 110px;
+        margin: 5px 0px 0px 10px;
+    }
+    #titles .subtitle {
+        margin-left: 20px;
+    }
     .grid-container {
         display: flex;
         flex-direction: row;
@@ -184,6 +198,12 @@ style.
         width: 90%;
         padding: 20px 0px 0px 0px;
     }
+    #treacle-popup .desc {
+        font-size: 30px;
+    }
+    #sponge-popup .desc {
+        font-size: 20px;
+    }
     .popup .date {
         margin-bottom: 40px;
     }
@@ -201,8 +221,18 @@ style.
     .popup #close-added-popup {
         font-size: 20px;
     }
+    
+    @media only screen and (max-width: 660px) {
+        #titles .title {
+            font-size: 100px;
+        }
+    }
 
 script.
+    query = document.location.href.replace("http://localhost:3000/shopping")
+    query = query.replace("%20", " ")
+    query = query.toLowerCase()
+
     function popups(wrap, id, condition, cart, query) {
         document.querySelector(wrap).addEventListener('click', () => {
             let popup = document.getElementById(id);
@@ -215,41 +245,40 @@ script.
                 }
                 popup.style.visibility = condition;
             } else if (cart.includes("cart")) {
-                let cake = condition.replace("cart:", "")
+                let cake = cart.replace("cart:", "")
                 console.log("added to cart: ".concat(cake));
 
-                var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
+                var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
                 var params = new URLSearchParams(cartVars)
                 params.append("cake", cake);
                 document.cookie = "cart=" + params.toString();
-                
             }
         });
     }
+    function sendData(wrap, cart) {
+        let cake = cart.replace("cart:", "")
+            console.log("added to cart: ".concat(cake));
 
-    function cartPopups(wrap, id) {
-        document.querySelector(wrap).addEventListener('click', () => {
-            let popup = document.getElementById(id);
-            popup.style.visibility = 'hidden';
-        });
+            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
+            var params = new URLSearchParams(cartVars)
+            params.append("cake", cake);
+            document.cookie = "cart=" + params.toString();
     }
     
+    //popups(wrap, id, condition, cart, query) 
+    
     popups('#sponge-wrap', 'sponge-popup', 'open');
+    sendData('#add-treacle', 'cart:sponge');
     popups('#close-sponge', 'sponge-popup', 'close');
-    popups('#add-sponge', 'added-sponge', 'open');
-    cartPopups('#close-added-sponge', 'added-sponge');
 
     popups('#treacle-wrap', 'treacle-popup', 'open');
+    sendData('#add-treacle', 'cart:treacle');
     popups('#close-treacle', 'treacle-popup', 'close');
-    popups('#add-treacle', 'added-treacle', 'open');
-    cartPopups('#close-added-treacle', 'added-treacle');
 
     popups('#concave-wrap', 'concave-popup', 'open');
+    sendData('#add-treacle', 'cart:concave');
     popups('#close-concave', 'concave-popup', 'close');
-    popups('#add-concave', 'added-concave', 'open');
-    cartPopups('#close-added-concave', 'added-concave');
 
     popups('#chocolate-wrap', 'chocolate-popup', 'open');
+    sendData('#add-treacle', 'cart:chocolate');
     popups('#close-chocolate', 'chocolate-popup', 'close');
-    popups('#add-chocolate', 'added-chocolate', 'open');
-    cartPopups('#close-added-chocolate', 'added-chocolate');

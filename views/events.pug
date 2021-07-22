@@ -1,6 +1,6 @@
 include includes/header.pug
 head
-    title Pug
+    title Events
     link(rel="preconnect" href="https://fonts.googleapis.com/%22%3E")
     link(rel="preconnect" href="https://fonts.gstatic.com/" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap")
@@ -11,7 +11,7 @@ head
 
 .grid-container
     .tile#tile-1
-        p.tile-title THE VERY FIRST
+        p.title THE VERY FIRST
         img#tile-1-beauty-face(src="https://images-ext-2.discordapp.net/external/RUn18D_0_d5lR1o-hMBHWbz8MjCjf73kCBVJGnk_5fw/https/3.bp.blogspot.com/-93U31TN9UuY/UGIOsYAgIcI/AAAAAAAAUgQ/t4G05o0dKLQ/s1600/tiles%2B3.jpg?width=286&height=473" alt="#tile-1 lookin' sexy ;0")
         .content
             p This is the anniversary of the first placeholder tile! :) Happy Birthday, #tile-1! We hope your world comes out a bright and eventful one. I love you. I shall nickname you...
@@ -20,6 +20,13 @@ head
             p I love you! <3
         p.author Author: S Garrett
         p.date Date: 21/07/2021, 21:57
+    .tile#tile-2
+        p.title OUR ANNIVERSARY
+        img(src="https://media.discordapp.net/attachments/858014139246837810/867667851825119252/anniversary.png" alt="Birthday #1")
+        .content
+            p Welcome to cake.! This is out anniversary. We hava all worked so hard on making this project at least functional.
+        p.author Author: S Garrett
+        p.date Date: 22/07/2021, 08:23
 
 
 style.
@@ -48,18 +55,37 @@ style.
         width: auto;
         padding: 20px;
     }
-    .tile-title {
+    .tile .title {
         font-size: 30px;
         margin: 0px 0px 10px 35px;
     }
-    .content {
+    .tile img {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #tile-1 {
+        grid-row: 2;
+    }
+    #tile-1 img {
+        top: 7%;
+        right: 1%;
+        height: 220px;
+    }
+    #tile-1 .content {
         width: 85%;
     }
-    #tile-1-beauty-face {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        height: 220px;
+    #tile-2 {
+        grid-row: 1;
+    }
+    #tile-2 img {
+        top: 15%;
+        right: 1%;
+        height: 70%;
+        border: 1px solid black;
+    }
+    #tile-2 .content {
+        width: 60%;
     }
     .author, .date {
         font-weight: bolder;
