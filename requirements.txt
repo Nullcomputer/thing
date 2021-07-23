@@ -4,3 +4,4 @@ mysql
 cookie
 https
 js-sha256
+jquery

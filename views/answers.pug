@@ -42,7 +42,7 @@ include includes/header.pug
         #close-sponge
             button.button#close-popup X
         #add-sponge 
-            button.button#add-to-cart Add to cart
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-sponge
             p#cart-popup-text added to cart
             #close-added-sponge
@@ -57,7 +57,7 @@ include includes/header.pug
         #close-treacle
             button.button#close-popup X
         #add-treacle 
-            button.button#add-to-cart Add to cart
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-treacle
             p#cart-popup-text added to cart
             #close-added-treacle
@@ -72,7 +72,7 @@ include includes/header.pug
         #close-concave
             button.button#close-popup X
         #add-concave 
-            button.button#add-to-cart Add to cart
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-concave
             p#cart-popup-text added to cart
             #close-added-concave
@@ -87,14 +87,13 @@ include includes/header.pug
         #close-chocolate
             button.button#close-popup X
         #add-chocolate
-            button.button#add-to-cart Add to cart
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .popup#added-chocolate
             p#cart-popup-text added to cart
             #close-added-chocolate
                 button.button#close-added-popup X
 style.
     *{padding: 0; margin: 0; --GREENY: #42f5a4; --BLUEY: #42c2f5; --YELLOWY: lightgoldenrodyellow; --FADED: linear-gradient(to right, var(--GREENY), var(--BLUEY));}
-
     .grid-container {
         display: flex;
         flex-direction: row;
@@ -268,6 +267,7 @@ script.
     showResults(query, "treacle-wrap", "treacle")
     showResults(query, "concave-wrap", "concave")
     showResults(query, "chocolate-wrap", "chocolate pudding")
+    
     //popups(wrap, id, condition, cart, query) 
     
     popups('#sponge-wrap', 'sponge-popup', 'open');
@@ -289,5 +289,6 @@ script.
     results = document.getElementById("count")
     results.innerText = `Your search returned ${count} results!`
 
-
-    
+    function alertMe() {
+        console.log("Pressed!");
+    }

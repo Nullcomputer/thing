@@ -19,6 +19,13 @@ p#title cart
         #remove-treacle
             button.remove#remove-treacle-button X
 
+    .tile#chocolate-tile
+        img.image(src="https://www.greenandblacks.co.uk/media/wysiwyg/Sticky-Toffee-MOB.png" alt="Image CHOCOLATE")
+        p.title Chocolate
+        p.desc Here is a descriptive text cause yeah chocolate is basically a meme :/ (again, kinda)
+        #remove-chocolate
+            button.remove#remove-chocolate-button X
+        
     .tile#concave-tile
         img.image(src="https://media.discordapp.net/attachments/858014139246837810/863775759850930196/13580474945_841cef5e65_b.png?width=768&height=390" alt="Image CONCAVE")
         p.title Concave
@@ -59,8 +66,7 @@ style.
     }
     .title {
         font-size: 20px;
-        position: absolute;
-        margin-top: 40px;
+        margin-top: -70px;
         margin-left: 200px;
     }
     .image {
@@ -68,8 +74,8 @@ style.
         width: 180px;
     }
     .desc {
-        width: 800px;
-        margin-top: -60px;
+        width: 45%;
+        margin-top: -70px;
         margin-left: 400px;
     }
     .remove {
@@ -82,50 +88,44 @@ style.
     }
 
 script.
-    var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
-    var params = new URLSearchParams(cartVars)
-    cartVars = cartVars.replace(/cake=/g, "")
-    cartVars = cartVars.split("&")
-
-    console.log("starting...");
-    console.log(cartVars);
-    const cartLen = cartVars.length;
-        
-    if(cartVars[0] != "") {
-        cartVars[0] = "";
-    }
+    var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
+    var params = new URLSearchParams(cartVars);
+    cartVars = cartVars.replace(/cake=/g, "");
+    cartVars = cartVars.split("&");
 
     let noDupe = [...new Set(cartVars)];
-    noDupe.shift()
-    console.log("Done");
 
-    console.log(noDupe)
-    alert(noDupe)
+    // no more pesky spaces... for now
+    noDupe.shift()
+
+    // DEBUG
+    console.log(noDupe);
 
     function close(remove, tile, type, cart) {
 
         function cookieRemove(type) {
-            console.log("removed: " + type)
-            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
-            var params = new URLSearchParams(cartVars)
-            document.cookie = document.cookie.replaceAll(type, "")
         }
 
         function updateCart() {
-            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
-            if (!cartVars.includes(type)){
+            var index = noDupe.indexOf(type);
+            noDupe.splice(index, 1);
+            console.log(noDupe)
+
+            if (!noDupe.includes(type)){
                 let popup = document.getElementById(tile);
-                let show = 'none';
-                popup.style.display = show;
+                popup.style.display = 'none';
             }
+
+            console.log("removed: " + type)
         }
 
         document.querySelector(remove).addEventListener('click', () => {
-            cookieRemove(type)
-            updateCart()
+            cookieRemove();
+            updateCart();
         });
     }
+
     close('#remove-sponge', 'sponge-tile', 'sponge', cartVars);
     close('#remove-treacle', 'treacle-tile', 'treacle', cartVars);
+    close('#remove-chocolate', 'chocolate-tile', 'chocolate', cartVars);
     close('#remove-concave', 'concave-tile', 'concave', cartVars);
-    

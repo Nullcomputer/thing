@@ -43,8 +43,8 @@ head
         p.author S Garrett
         #close-sponge
             button.button#close-popup X
-        .add#add-sponge 
-            button.button#add-to-cart Add to cart
+        .add-sponge 
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-sponge
             p#cart-popup-text added to cart
             #close-added-sponge
@@ -58,8 +58,8 @@ head
         p.author S Garrett
         #close-treacle
             button.button#close-popup X
-        .add#add-treacle 
-            button.button#add-to-cart Add to cart
+        .add-treacle 
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-treacle
             p#cart-popup-text added to cart
             #close-added-treacle
@@ -73,8 +73,8 @@ head
         p.author S Garrett
         #close-concave
             button.button#close-popup X
-        .add#add-concave 
-            button.button#add-to-cart Add to cart
+        .add-concave 
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-concave
             p#cart-popup-text added to cart
             #close-added-concave
@@ -88,8 +88,8 @@ head
         p.author M Keenan
         #close-chocolate
             button.button#close-popup X
-        .add#add-chocolate
-            button.button#add-to-cart Add to cart
+        .add-chocolate
+            button.button#add-to-cart(onclick="alertMe()") Add to cart
         .cart-popup#added-chocolate
             p#cart-popup-text added to cart
             #close-added-chocolate
@@ -229,11 +229,29 @@ style.
     }
 
 script.
+    function appendCookie(type) {
+        console.log("removed: " + type)
+            if (!document.cookie.split("; ").find(row => row.startsWith("cart")) == null) {
+                var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart")).substring(5);
+                cartVars = cartVars.replace("cart=", "")
+                cartVars = cartVars.split(",")
+            } else {
+                cartVars = []
+            }
+            
+            console.log(cartVars)
+            document.cookie = 'cart=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            cartVars.push(type)
+            document.cookie = `cart=${cartVars.toString()};`
+    }
+
+
     query = document.location.href.replace("http://localhost:3000/shopping")
     query = query.replace("%20", " ")
     query = query.toLowerCase()
 
     function popups(wrap, id, condition, cart, query) {
+        var cakes = []
         document.querySelector(wrap).addEventListener('click', () => {
             let popup = document.getElementById(id);
             if(condition == "open" || condition == "close") {
@@ -248,21 +266,18 @@ script.
                 let cake = cart.replace("cart:", "")
                 console.log("added to cart: ".concat(cake));
 
-                var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
-                var params = new URLSearchParams(cartVars)
-                params.append("cake", cake);
-                document.cookie = "cart=" + params.toString();
+                appendCookie(cake)
             }
         });
     }
     function sendData(wrap, cart) {
         let cake = cart.replace("cart:", "")
-            console.log("added to cart: ".concat(cake));
-
-            var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
-            var params = new URLSearchParams(cartVars)
-            params.append("cake", cake);
-            document.cookie = "cart=" + params.toString();
+        console.log("added to cart: ".concat(cake));
+        var cartVars = document.cookie.split("; ").find(row => row.startsWith("cart"));
+        console.log(cartVars);
+        var params = new URLSearchParams(cartVars)
+        params.append("cake", cake);
+        document.cookie = "cart=" + params.toString();
     }
     
     //popups(wrap, id, condition, cart, query) 
@@ -282,3 +297,7 @@ script.
     popups('#chocolate-wrap', 'chocolate-popup', 'open');
     sendData('#add-treacle', 'cart:chocolate');
     popups('#close-chocolate', 'chocolate-popup', 'close');
+
+    function alertMe() {
+        console.log("Pressed!");
+    }

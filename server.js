@@ -59,7 +59,7 @@ server.get('/register', (req, res) => {
 
 // cart
 server.get('/cart', (req, res) => {
-    res.render('cart.pug');         // CLOSED
+    res.render('cart.pug');         // OPEN
 });
 
 // settings
@@ -70,6 +70,11 @@ server.get('/settings', (req, res) => {
 // answers
 server.get('/answers', (req, res) => {
     res.render('answers.pug');
+});
+
+// profile
+server.get('/profile', (req, res) => {
+    res.render('profile.pug');
 });
 
 
@@ -97,21 +102,17 @@ server.post(r + '/login', (req, res) => {
             exists = true;
         }
     });
-    res.send(exists);
+    res.send(password);
     console.log("EXITING /login\n");
 });
 
 // register
 server.post(r + '/register', (req, res) => {
-
-    console.log("ENTERING /register\n");
-    
+    let exists = false;
     const obj = req.body;
-
     const email = obj.email;
     const password = sha256(obj.password);
 
-    res.send("Register Started...\n");
     // <sql>
 
     const json = {
@@ -121,11 +122,12 @@ server.post(r + '/register', (req, res) => {
         exists: ""
     };
     
-    let exists = false
-    const sCheck = `SELECT email FROM user_logins WHERE email = "${email}"`;
-
+    const sCheck = `SELECT email FROM user_logins WHERE password = "${password}"`;
+    
     con.query(sCheck, (err, result) => {
         if (result === null) {
+            exists = false;
+            console.log("Added")
             const sql = `INSERT INTO user_logins (email, password) VALUES ("${email}", "${password}")`;
             console.log(sql);
             con.query(sql, (err, result) => {
@@ -134,21 +136,10 @@ server.post(r + '/register', (req, res) => {
             });
         } else {
             exists = true;
+            console.log("Exists already")
         }
-
-        json.success = exists ? 'false' : 'true';
-        json.email = email;
-        json.password = password;
-        json.exists = exists ? 'true' : 'false';
-        
-        res.json(json);
-
     });
-    res.send("succesful register\n");
-    con.close();
-
-    // </sql>
-    console.log("Touchdown!\n");
+    console.log(sCheck);
 });
 
 

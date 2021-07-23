@@ -30,19 +30,16 @@ script.
     const password = document.getElementById('password').value;
     const checkbox = document.getElementById('check').checked;    
     
-    
-    
     let payload = {
       email : email,
       password : password
     }
 
-    let response = await fetch('/api/login', {
+    let response = await fetch('/api/register', {
       method: 'POST',
       headers: {'Content-Type' : 'application/json',},
       body: JSON.stringify(payload)
     });
     let text = await response.text();
     console.log(text);
-    
   }
